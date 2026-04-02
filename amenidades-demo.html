@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>amenidades.com — Sistema de abastecimiento hotelero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF8;
+  --surface:#FFFFFF;
+  --surface-2:#F5F3EF;
+  --surface-3:#EFECE8;
+  --border:#E8E4DF;
+  --border-light:#F0EDE8;
+  --text-1:#1A1814;
+  --text-2:#4A4540;
+  --text-3:#8A8480;
+  --accent:#1C3A2E;
+  --accent-hover:#163020;
+  --accent-mid:#2D5A45;
+  --accent-light:#E8F0EC;
+  --accent-lighter:#F2F7F4;
+  --amber:#C17B2B;
+  --amber-bg:#FDF3E8;
+  --green:#2D7A4F;
+  --green-bg:#E8F5EE;
+  --shadow-sm:0 1px 3px rgba(26,24,20,.07),0 1px 2px rgba(26,24,20,.04);
+  --shadow-md:0 4px 16px rgba(26,24,20,.09),0 2px 4px rgba(26,24,20,.04);
+  --shadow-lg:0 16px 40px rgba(26,24,20,.11),0 4px 8px rgba(26,24,20,.05);
+  --r-sm:6px;--r-md:10px;--r-lg:16px;--r-xl:20px
+}
+html{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.serif{font-family:'Instrument Serif',Georgia,serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--accent);color:rgba(255,255,255,.8);font-size:12px;font-weight:500;letter-spacing:.02em;padding:9px 0}
+.trust-bar-inner{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:0}
+.trust-item{display:flex;align-items:center;gap:7px;padding:0 22px;border-right:1px solid rgba(255,255,255,.15)}
+.trust-item:last-child{border-right:none}
+.tdot{width:5px;height:5px;background:#6BAF85;border-radius:50%}
+
+/* ── HEADER ── */
+.header{background:rgba(255,255,255,.95);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.header-inner{display:flex;align-items:center;height:68px;gap:20px}
+.logo{font-family:'Instrument Serif',Georgia,serif;font-size:23px;color:var(--text-1);text-decoration:none;letter-spacing:-.02em;flex-shrink:0;margin-right:8px}
+.logo span{color:var(--accent)}
+.nav{display:flex;gap:2px;align-items:center;flex:1}
+.nav a{color:var(--text-2);text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:var(--r-sm);transition:all 140ms ease;white-space:nowrap}
+.nav a:hover{color:var(--text-1);background:var(--surface-2)}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.search-wrap{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:0 12px;height:38px;gap:8px;width:250px;transition:all 200ms}
+.search-wrap:focus-within{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-light)}
+.search-wrap input{border:none;background:transparent;outline:none;font-size:13px;color:var(--text-1);width:100%;font-family:inherit}
+.search-wrap input::placeholder{color:var(--text-3)}
+.si{color:var(--text-3);flex-shrink:0}
+.btn-ghost{background:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 14px;font-size:13.5px;font-weight:500;color:var(--text-2);cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-ghost:hover{border-color:var(--text-3);color:var(--text-1)}
+.cart-btn{background:var(--accent);border:none;border-radius:var(--r-sm);padding:8px 16px;font-size:13.5px;font-weight:600;color:#fff;cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.cart-btn:hover{background:var(--accent-hover)}
+.cart-n{background:#fff;color:var(--accent);border-radius:50%;width:19px;height:19px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:19px}
+
+/* ── HERO ── */
+.hero{padding:76px 0 68px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-80px;width:680px;height:680px;background:radial-gradient(circle,var(--accent-light) 0%,transparent 68%);opacity:.5;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,#FDF3E8 0%,transparent 65%);opacity:.4;pointer-events:none}
+.hero-inner{display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center;position:relative}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:22px}
+.chip-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse-g 2.2s infinite}
+@keyframes pulse-g{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.hero h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,3.8vw,52px);line-height:1.08;letter-spacing:-.025em;color:var(--text-1);margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:17px;color:var(--text-2);line-height:1.65;margin-bottom:34px;max-width:460px}
+.hero-ctas{display:flex;gap:12px;margin-bottom:44px}
+.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:13px 26px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn-secondary{background:transparent;color:var(--text-1);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:13px 22px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--text-3);background:var(--surface-2)}
+.hero-metrics{display:flex;gap:36px;padding-top:32px;border-top:1px solid var(--border)}
+.m-val{font-size:26px;font-weight:700;color:var(--text-1);letter-spacing:-.025em;line-height:1;margin-bottom:4px}
+.m-lbl{font-size:12.5px;color:var(--text-3)}
+
+/* HERO CARD */
+.hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-lg)}
+.hcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.hcard-name{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:2px}
+.hcard-pack{font-size:12px;color:var(--text-3)}
+.live-badge{display:inline-flex;align-items:center;gap:5px;background:var(--green-bg);color:var(--green);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.02em}
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:live-pulse 1.6s infinite}
+@keyframes live-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.product-visual{height:150px;background:linear-gradient(135deg,#E8F0EC 0%,#C5DDD0 100%);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:60px;margin-bottom:18px;position:relative;overflow:hidden}
+.product-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,46,.06) 0%,transparent 50%)}
+
+.vol-label{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.tier-tbl{width:100%;border-collapse:collapse;margin-bottom:16px}
+.tier-tbl tr td{padding:7px 10px;font-size:13px;transition:all 150ms}
+.tier-tbl tr{border-radius:6px;transition:background 150ms}
+.tier-tbl .tc-qty{color:var(--text-2)}
+.tier-tbl .tc-price{font-weight:700;text-align:right}
+.tier-tbl .tc-save{font-size:11px;font-weight:600;color:var(--green);text-align:right}
+.tier-tbl .trow-active td{color:var(--accent)!important}
+.tier-tbl .trow-active .tc-price{color:var(--accent)!important}
+.trow-active{background:var(--accent-light);border-radius:6px}
+.trow-active td:first-child{border-radius:6px 0 0 6px}
+.trow-active td:last-child{border-radius:0 6px 6px 0}
+
+.qty-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+.qty-lbl{font-size:11px;color:var(--text-3);margin-bottom:6px}
+.qty-ctrl{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.qbtn{width:36px;height:36px;background:none;border:none;font-size:18px;font-weight:300;cursor:pointer;color:var(--text-2);display:flex;align-items:center;justify-content:center;transition:all 100ms;font-family:inherit;line-height:1}
+.qbtn:hover{background:var(--border);color:var(--text-1)}
+.qnum{min-width:44px;text-align:center;font-size:14px;font-weight:700;color:var(--text-1);border-left:1px solid var(--border);border-right:1px solid var(--border);height:36px;display:flex;align-items:center;justify-content:center}
+.total-box{text-align:right}
+.total-lbl{font-size:11px;color:var(--text-3);margin-bottom:2px}
+.total-val{font-size:22px;font-weight:700;color:var(--text-1);letter-spacing:-.025em;transition:all 160ms}
+.total-save{font-size:11.5px;color:var(--green);font-weight:600;min-height:17px}
+.stock-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);padding-top:12px;border-top:1px solid var(--border-light);margin-top:2px}
+.stock-live{display:flex;align-items:center;gap:5px;font-weight:600;color:var(--green)}
+.sdot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:live-pulse 1.6s infinite}
+
+/* ── PILLARS ── */
+.pillars{padding:80px 0;background:var(--surface-2);border-bottom:1px solid var(--border)}
+.sec-lbl{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.sec-title{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(26px,2.8vw,38px);letter-spacing:-.02em;color:var(--text-1);line-height:1.12;margin-bottom:14px}
+.sec-sub{font-size:15.5px;color:var(--text-2);line-height:1.65;max-width:560px}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.pillar{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;transition:all 200ms}
+.pillar:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.pillar-num{font-size:11px;font-weight:700;color:var(--accent);opacity:.5;letter-spacing:.1em;margin-bottom:16px}
+.pillar-icon{width:48px;height:48px;background:var(--accent-light);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:22px}
+.pillar-title{font-size:16.5px;font-weight:700;color:var(--text-1);margin-bottom:9px;letter-spacing:-.01em}
+.pillar-desc{font-size:13.5px;color:var(--text-2);line-height:1.7}
+.pillar-foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--border-light);font-size:13px;color:var(--text-3)}
+.pillar-foot strong{color:var(--accent);font-weight:600}
+
+/* ── SHIPPING CALC ── */
+.shipping-calc{padding:40px 0;background:var(--accent-lighter);border-bottom:1px solid var(--border)}
+.calc-wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.calc-title{font-size:14.5px;font-weight:700;color:var(--text-1);flex-shrink:0;display:flex;align-items:center;gap:8px}
+.calc-fields{display:flex;gap:8px;flex:1;max-width:400px}
+.cp-input{flex:1;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:14px;font-family:inherit;color:var(--text-1);outline:none;background:#fff;transition:all 150ms}
+.cp-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+.calc-go{background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 140ms}
+.calc-go:hover{background:var(--accent-hover)}
+.calc-res{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.cr-item{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.cr-icon{font-size:16px}
+
+/* ── CATEGORIES ── */
+.categories{padding:80px 0;border-bottom:1px solid var(--border);background:var(--surface)}
+.cats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.cat-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all 200ms;background:#fff}
+.cat-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.cat-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
+.cat-body{padding:16px}
+.cat-title{font-size:14.5px;font-weight:700;color:var(--text-1);margin-bottom:3px}
+.cat-count{font-size:12px;color:var(--text-3);margin-bottom:8px}
+.cat-arrow{font-size:12.5px;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:3px}
+
+/* ── PRODUCTS ── */
+.products{padding:80px 0;border-bottom:1px solid var(--border);background:var(--bg)}
+.products-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.see-all{font-size:13.5px;color:var(--accent);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap 150ms}
+.see-all:hover{gap:8px}
+.prods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.prod-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all 200ms}
+.prod-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.prod-img{height:175px;display:flex;align-items:center;justify-content:center;position:relative;font-size:52px}
+.prod-badges{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.brand-bdg{background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.6);border-radius:100px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--text-1);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.stock-bdg{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border-radius:100px;padding:3px 9px;font-size:11px;font-weight:600;white-space:nowrap}
+.stock-bdg.hi{color:var(--green)}
+.stock-bdg.lo{color:var(--amber)}
+.spulse{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.spulse.hi{background:var(--green);animation:live-pulse 1.6s infinite}
+.spulse.lo{background:var(--amber);animation:live-pulse 1s infinite}
+
+.prod-body{padding:18px}
+.prod-name{font-size:14.5px;font-weight:700;color:var(--text-1);margin-bottom:2px;letter-spacing:-.01em}
+.prod-pack{font-size:12px;color:var(--text-3);margin-bottom:14px}
+.pricing-tiers{background:var(--surface-2);border-radius:var(--r-sm);border:1px solid var(--border-light);overflow:hidden;margin-bottom:14px}
+.trow{display:grid;grid-template-columns:1fr auto auto;gap:6px;padding:7px 11px;font-size:12.5px;transition:background 140ms;border-bottom:1px solid var(--border-light)}
+.trow:last-child{border-bottom:none}
+.trow.act{background:var(--accent-light)}
+.trow-qty{color:var(--text-2)}
+.trow-price{font-weight:700;color:var(--text-1);text-align:right}
+.trow-disc{font-size:11px;font-weight:600;color:var(--green);background:var(--green-bg);padding:1px 6px;border-radius:100px}
+.trow.act .trow-qty{color:var(--accent);font-weight:500}
+.trow.act .trow-price{color:var(--accent)}
+.prod-footer{display:flex;flex-direction:column;gap:11px}
+.qty-total{display:flex;align-items:center;justify-content:space-between}
+.qty-side .qlbl{font-size:11px;color:var(--text-3);margin-bottom:5px}
+.total-side{text-align:right}
+.tlbl{font-size:11px;color:var(--text-3);margin-bottom:1px}
+.tval{font-size:18px;font-weight:700;color:var(--text-1);letter-spacing:-.02em}
+.tsave{font-size:11.5px;color:var(--green);font-weight:600;min-height:16px}
+.add-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 140ms;display:flex;align-items:center;justify-content:center;gap:7px}
+.add-btn:hover{background:var(--accent-hover)}
+.add-btn:active{transform:scale(.99)}
+.add-btn.added{background:var(--green)}
+
+/* ── SYSTEM VALUE ── */
+.sys-val{padding:80px 0;background:var(--accent)}
+.sys-val .sec-lbl{color:rgba(255,255,255,.4)}
+.sys-val .sec-title{color:#fff}
+.sys-val .sec-sub{color:rgba(255,255,255,.65);max-width:600px}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
+.cmp-col{border-radius:var(--r-lg);padding:32px}
+.cmp-col.theirs{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.cmp-col.ours{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22)}
+.cmp-head{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;color:rgba(255,255,255,.45)}
+.cmp-col.ours .cmp-head{color:#A8D5B5}
+.feat{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px}
+.feat:last-child{border-bottom:none}
+.ficon{width:20px;flex-shrink:0;margin-top:1px;font-size:14px}
+.ftxt{color:rgba(255,255,255,.65);line-height:1.5}
+.ftxt.on{color:#fff;font-weight:500}
+
+/* ── TESTIMONIAL ── */
+.testimonial{padding:80px 0;border-bottom:1px solid var(--border);background:var(--surface)}
+.test-inner{max-width:740px;margin:0 auto;text-align:center}
+.qmark{font-family:'Instrument Serif',Georgia,serif;font-size:80px;color:var(--accent-light);line-height:.45;margin-bottom:28px;display:block}
+.qtext{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,2.4vw,25px);color:var(--text-1);line-height:1.45;margin-bottom:32px;font-style:italic}
+.q-author{display:flex;align-items:center;justify-content:center;gap:14px}
+.q-avatar{width:46px;height:46px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.q-name{font-weight:700;font-size:15px;color:var(--text-1);text-align:left}
+.q-role{font-size:12.5px;color:var(--text-3);text-align:left}
+
+/* ── FOOTER ── */
+.footer{background:var(--text-1);color:rgba(255,255,255,.55);padding:56px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.ft-logo{font-family:'Instrument Serif',Georgia,serif;font-size:21px;color:#fff;margin-bottom:11px}
+.ft-desc{font-size:13px;line-height:1.7;margin-bottom:18px}
+.ft-certs{display:flex;gap:8px}
+.cert{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:5px 12px;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.04em}
+.ft-col-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px}
+.ft-links{list-style:none}
+.ft-links li{margin-bottom:9px}
+.ft-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13.5px;transition:color 130ms}
+.ft-links a:hover{color:#fff}
+.ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:12px}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal[data-delay="1"]{transition-delay:.1s}
+.reveal[data-delay="2"]{transition-delay:.18s}
+.reveal[data-delay="3"]{transition-delay:.26s}
+.reveal[data-delay="4"]{transition-delay:.34s}
+
+/* ── PRICE ANIM ── */
+@keyframes price-pop{0%{opacity:.5;transform:scale(.97)}100%{opacity:1;transform:scale(1)}}
+.price-pop{animation:price-pop 180ms ease forwards}
+</style>
+</head>
+<body>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="tdot"></span>Inventario sincronizado en tiempo real</div>
+      <div class="trust-item"><span class="tdot"></span>Precios por volumen automáticos</div>
+      <div class="trust-item"><span class="tdot"></span>Envío calculado antes de pagar</div>
+      <div class="trust-item"><span class="tdot"></span>Crédito empresarial 30 / 60 días</div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">amen<span>idades</span></a>
+      <nav class="nav">
+        <a href="#">Blancos</a>
+        <a href="#">Amenidades</a>
+        <a href="#">Baño</a>
+        <a href="#">Spa</a>
+        <a href="#productos">Bestsellers</a>
+        <a href="#">Marcas</a>
+      </nav>
+      <div class="header-actions">
+        <div class="search-wrap">
+          <svg class="si" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" placeholder="Busca por producto, SKU o marca…">
+        </div>
+        <button class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Mi cuenta
+        </button>
+        <button class="cart-btn" id="cart-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Carrito
+          <span class="cart-n" id="cart-n">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <!-- LEFT -->
+      <div>
+        <div class="hero-chip"><span class="chip-dot"></span>Mayorista hotelero · México</div>
+        <h1>El sistema de<br>abastecimiento hotelero<br><em>más eficiente</em> de México</h1>
+        <p class="hero-sub">Inventario en tiempo real. Precios que se ajustan solos según tu volumen. Envío calculado antes de pagar. Todo sin llamadas ni negociaciones.</p>
+        <div class="hero-ctas">
+          <a href="#productos" class="btn-primary">
+            Ver catálogo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="btn-secondary">Solicitar cuenta empresarial</a>
+        </div>
+        <div class="hero-metrics">
+          <div><div class="m-val">3,200+</div><div class="m-lbl">hoteles activos</div></div>
+          <div><div class="m-val">19</div><div class="m-lbl">marcas exclusivas</div></div>
+          <div><div class="m-val">48 h</div><div class="m-lbl">entrega CDMX</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: INTERACTIVE CARD -->
+      <div>
+        <div class="hero-card">
+          <div class="hcard-top">
+            <div>
+              <div class="hcard-name">Shampoo Natuá Organia</div>
+              <div class="hcard-pack">25 ml · 440 piezas por caja</div>
+            </div>
+            <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+          </div>
+          <div class="product-visual">🧴</div>
+          <div class="vol-label">Precio por volumen</div>
+          <table class="tier-tbl">
+            <tr id="ht0"><td class="tc-qty">1 – 4 cajas</td><td class="tc-price">$2,564</td><td class="tc-save"></td></tr>
+            <tr id="ht1" class="trow-active"><td class="tc-qty">5 – 9 cajas</td><td class="tc-price">$2,380</td><td class="tc-save">↓ 7%</td></tr>
+            <tr id="ht2"><td class="tc-qty">10 – 24 cajas</td><td class="tc-price">$2,179</td><td class="tc-save">↓ 15%</td></tr>
+            <tr id="ht3"><td class="tc-qty">25+ cajas</td><td class="tc-price">$1,980</td><td class="tc-save">↓ 23%</td></tr>
+          </table>
+          <div class="qty-row">
+            <div>
+              <div class="qty-lbl">Cantidad de cajas</div>
+              <div class="qty-ctrl">
+                <button class="qbtn" onclick="heroQty(-1)">−</button>
+                <div class="qnum" id="h-qty">5</div>
+                <button class="qbtn" onclick="heroQty(1)">+</button>
+              </div>
+            </div>
+            <div class="total-box">
+              <div class="total-lbl">Total estimado</div>
+              <div class="total-val" id="h-total">$11,900</div>
+              <div class="total-save" id="h-save">Ahorras $920 vs precio base</div>
+            </div>
+          </div>
+          <div class="stock-row">
+            <div class="stock-live"><span class="sdot"></span>38 cajas disponibles</div>
+            <span>Actualizado hace 2 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-lbl">Cómo funciona</div>
+      <h2 class="sec-title">No es una tienda.<br>Es tu sistema de abastecimiento.</h2>
+      <p class="sec-sub">Detrás de cada producto hay tecnología que automatiza todo el proceso: precio, stock y envío resueltos antes de que llegues al checkout.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar reveal" data-delay="1">
+        <div class="pillar-num">01</div>
+        <div class="pillar-icon">📦</div>
+        <div class="pillar-title">Inventario en tiempo real</div>
+        <p class="pillar-desc">Nuestro catálogo está conectado directamente a nuestro ERP. Lo que ves en pantalla existe en el almacén. Sin sorpresas ni cancelaciones post-compra.</p>
+        <div class="pillar-foot"><strong>Sincronización cada 60 segundos.</strong> Siempre exacto.</div>
+      </div>
+      <div class="pillar reveal" data-delay="2">
+        <div class="pillar-num">02</div>
+        <div class="pillar-icon">💰</div>
+        <div class="pillar-title">Precio que se ajusta solo</div>
+        <p class="pillar-desc">Cambia la cantidad y el precio baja automáticamente al tier que te corresponde. Sin llamadas, sin cotizaciones manuales, sin negociación.</p>
+        <div class="pillar-foot"><strong>Hasta 25% de ahorro</strong> en pedidos de alto volumen.</div>
+      </div>
+      <div class="pillar reveal" data-delay="3">
+        <div class="pillar-num">03</div>
+        <div class="pillar-icon">🚚</div>
+        <div class="pillar-title">Envío calculado antes de pagar</div>
+        <p class="pillar-desc">Ingresa tu código postal y el sistema calcula costo y tiempo de entrega al instante. El precio total que ves es el precio que pagas.</p>
+        <div class="pillar-foot"><strong>Envío gratis</strong> en pedidos mayores a $8,000 MXN.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING CALC -->
+<section class="shipping-calc">
+  <div class="container">
+    <div class="calc-wrap">
+      <div class="calc-title">🚚 Calcula tu envío ahora:</div>
+      <div class="calc-fields">
+        <input type="text" class="cp-input" id="cp-in" placeholder="Código postal…" maxlength="5">
+        <button class="calc-go" onclick="calcShip()">Calcular</button>
+      </div>
+      <div class="calc-res" id="calc-res" style="display:none">
+        <div class="cr-item"><span class="cr-icon">📍</span><span id="cr-city"></span></div>
+        <div class="cr-item"><span class="cr-icon">⏱</span><span id="cr-time"></span></div>
+        <div class="cr-item"><span class="cr-icon">💳</span><span id="cr-cost"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-lbl">Catálogo completo</div>
+      <h2 class="sec-title">Todo lo que tu hotel necesita</h2>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card reveal" data-delay="1">
+        <div class="cat-img" style="background:linear-gradient(135deg,#E8F0EC,#C5DDD0)">🛁</div>
+        <div class="cat-body">
+          <div class="cat-title">Amenidades de Baño</div>
+          <div class="cat-count">142 productos · 12 marcas</div>
+          <div class="cat-arrow">Explorar <span>→</span></div>
+        </div>
+      </div>
+      <div class="cat-card reveal" data-delay="2">
+        <div class="cat-img" style="background:linear-gradient(135deg,#EEF2FB,#D5DFEE)">🛏</div>
+        <div class="cat-body">
+          <div class="cat-title">Blancos &amp; Lencería</div>
+          <div class="cat-count">87 productos · 6 marcas</div>
+          <div class="cat-arrow">Explorar <span>→</span></div>
+        </div>
+      </div>
+      <div class="cat-card reveal" data-delay="3">
+        <div class="cat-img" style="background:linear-gradient(135deg,#F5EEF5,#E0D0E0)">💆</div>
+        <div class="cat-body">
+          <div class="cat-title">Spa &amp; Bienestar</div>
+          <div class="cat-count">56 productos · 8 marcas</div>
+          <div class="cat-arrow">Explorar <span>→</span></div>
+        </div>
+      </div>
+      <div class="cat-card reveal" data-delay="4">
+        <div class="cat-img" style="background:linear-gradient(135deg,#FDF3E8,#EED8B8)">📺</div>
+        <div class="cat-body">
+          <div class="cat-title">Electrónicos</div>
+          <div class="cat-count">34 productos · 5 marcas</div>
+          <div class="cat-arrow">Explorar <span>→</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="productos">
+  <div class="container">
+    <div class="products-hd reveal">
+      <div>
+        <div class="sec-lbl">Más vendidos</div>
+        <h2 class="sec-title">Bestsellers del mes</h2>
+      </div>
+      <a href="#" class="see-all">Ver catálogo completo →</a>
+    </div>
+    <div class="prods-grid" id="prods-grid"></div>
+  </div>
+</section>
+
+<!-- SYSTEM VALUE -->
+<section class="sys-val">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-lbl">Por qué amenidades.com</div>
+      <h2 class="sec-title">Infraestructura construida<br>para hoteles</h2>
+      <p class="sec-sub">No somos una tienda montada sobre plataforma genérica. Somos un sistema de abastecimiento diseñado desde cero para el sector hotelero mexicano.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="cmp-col theirs reveal" data-delay="1">
+        <div class="cmp-head">Proveedor tradicional</div>
+        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Inventario actualizado manualmente — riesgo real de vender lo que no existe</div></div>
+        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Precios fijos — tienes que llamar para negociar descuento por volumen</div></div>
+        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Costo de envío visible solo en el último paso del checkout</div></div>
+        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Factura manual — días de espera para recibirla</div></div>
+        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Sin historial de pedidos ni recompra rápida desde plataforma</div></div>
+      </div>
+      <div class="cmp-col ours reveal" data-delay="2">
+        <div class="cmp-head">amenidades.com</div>
+        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Inventario sincronizado con ERP cada 60 seg — siempre exacto, sin excepciones</div></div>
+        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Precio se ajusta automáticamente al cambiar cantidad — en tiempo real, sin llamadas</div></div>
+        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Envío calculado por código postal antes de llegar al checkout</div></div>
+        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Factura PDF generada al instante, descargable desde tu cuenta</div></div>
+        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Recompra en 2 minutos desde el historial — con cantidades pre-llenadas</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <div class="test-inner reveal">
+      <span class="qmark">"</span>
+      <p class="qtext">Antes tardábamos tres días en procesar una orden de reabastecimiento. Con amenidades.com son veinte minutos. El inventario siempre está actualizado, el precio ya incluye nuestro descuento por volumen, y la factura llega sola al correo.</p>
+      <div class="q-author">
+        <div class="q-avatar">👩</div>
+        <div>
+          <div class="q-name">María González</div>
+          <div class="q-role">Directora de Operaciones · Hotel Presidente · 180 habitaciones · CDMX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="ft-logo">amenidades</div>
+        <p class="ft-desc">El sistema mayorista de abastecimiento hotelero #1 de México. Más de 3,200 hoteles confían en nuestra plataforma para su operación diaria.</p>
+        <div class="ft-certs"><span class="cert">ISO 9001</span><span class="cert">GMP</span></div>
+      </div>
+      <div>
+        <div class="ft-col-title">Catálogo</div>
+        <ul class="ft-links">
+          <li><a href="#">Amenidades de Baño</a></li>
+          <li><a href="#">Blancos &amp; Lencería</a></li>
+          <li><a href="#">Spa &amp; Bienestar</a></li>
+          <li><a href="#">Electrónicos</a></li>
+          <li><a href="#">Mantenimiento</a></li>
+          <li><a href="#">Ver todo el catálogo</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-title">Empresa</div>
+        <ul class="ft-links">
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Marcas exclusivas</a></li>
+          <li><a href="#">Crédito empresarial</a></li>
+          <li><a href="#">Blog hotelero</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-col-title">Soporte</div>
+        <ul class="ft-links">
+          <li><a href="#">WhatsApp directo</a></li>
+          <li><a href="#">33 3693 1498</a></li>
+          <li><a href="#">ayuda@amenidades.com</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Términos y privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 amenidades.com — Todos los derechos reservados</span>
+      <span>Hecho en México 🇲🇽</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────
+const products = [
+  { id:1, name:'Shampoo Natuá Organia', pack:'25 ml · 440 piezas / caja', brand:'Natuá Organia', stock:38, level:'hi', emoji:'🧴', bg:'linear-gradient(135deg,#E8F0EC,#C5DDD0)',
+    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:2564},{l:'5 – 9 cajas',min:5,max:9,p:2380},{l:'10 – 24 cajas',min:10,max:24,p:2179},{l:'25+ cajas',min:25,max:9999,p:1980}]},
+  { id:2, name:'Acondicionador Mint Boost', pack:'25 ml · 440 piezas / caja', brand:'Mint Boost', stock:12, level:'hi', emoji:'💚', bg:'linear-gradient(135deg,#E8F5EE,#C0DCC8)',
+    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:2340},{l:'5 – 9 cajas',min:5,max:9,p:2150},{l:'10 – 24 cajas',min:10,max:24,p:1980},{l:'25+ cajas',min:25,max:9999,p:1810}]},
+  { id:3, name:'Jabón Bionature Premium', pack:'20 g · 500 piezas / caja', brand:'Bionature', stock:3, level:'lo', emoji:'🧼', bg:'linear-gradient(135deg,#FDF3E8,#EED8B8)',
+    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:1840},{l:'5 – 9 cajas',min:5,max:9,p:1680},{l:'10 – 24 cajas',min:10,max:24,p:1520},{l:'25+ cajas',min:25,max:9999,p:1380}]},
+  { id:4, name:'Crema Corporal Luum', pack:'30 ml · 240 piezas / caja', brand:'Luum', stock:22, level:'hi', emoji:'🏺', bg:'linear-gradient(135deg,#F5EEF5,#E0D0E0)',
+    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:3120},{l:'5 – 9 cajas',min:5,max:9,p:2890},{l:'10 – 24 cajas',min:10,max:24,p:2650},{l:'25+ cajas',min:25,max:9999,p:2420}]},
+  { id:5, name:'Toallas de Baño Blancas', pack:'500 g · 12 unidades / caja', brand:'Blancos Premium', stock:67, level:'hi', emoji:'🛁', bg:'linear-gradient(135deg,#EEF2FB,#D5DFEE)',
+    tiers:[{l:'1 – 9 cajas',min:1,max:9,p:1840},{l:'10 – 24 cajas',min:10,max:24,p:1650},{l:'25 – 49 cajas',min:25,max:49,p:1520},{l:'50+ cajas',min:50,max:9999,p:1380}]},
+  { id:6, name:'Kit Amenidades Completo', pack:'Shampoo + Acond. + Jabón · 200 kits / caja', brand:'Natuá Organia', stock:18, level:'hi', emoji:'🎁', bg:'linear-gradient(135deg,#E8F0EC,#D0E4D8)',
+    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:4800},{l:'5 – 9 cajas',min:5,max:9,p:4380},{l:'10 – 24 cajas',min:10,max:24,p:3980},{l:'25+ cajas',min:25,max:9999,p:3600}]},
+];
+
+const qtys = {};
+products.forEach(p => qtys[p.id] = 1);
+let cartTotal = 0;
+
+// ─── HELPERS ────────────────────────────────────────────
+const fmt = n => '$' + n.toLocaleString('es-MX');
+function tierIdx(p, q) { return p.tiers.findIndex(t => q >= t.min && q <= t.max); }
+
+// ─── RENDER PRODUCTS ────────────────────────────────────
+function renderProds() {
+  document.getElementById('prods-grid').innerHTML = products.map(p => {
+    const q = qtys[p.id];
+    const ti = tierIdx(p, q);
+    const base = p.tiers[0].p;
+    const price = p.tiers[ti].p;
+    const total = price * q;
+    const save = (base - price) * q;
+    const tiersHTML = p.tiers.map((t, i) => {
+      const disc = i === 0 ? '' : `<span class="trow-disc">-${Math.round((1-t.p/base)*100)}%</span>`;
+      return `<div class="trow${i===ti?' act':''}" data-pid="${p.id}" data-ti="${i}">
+        <span class="trow-qty">${t.l}</span>
+        <span class="trow-price">${fmt(t.p)}</span>
+        ${disc || '<span></span>'}
+      </div>`;
+    }).join('');
+    const sBdg = p.level === 'lo'
+      ? `<div class="stock-bdg lo"><span class="spulse lo"></span>${p.stock} cajas — stock bajo</div>`
+      : `<div class="stock-bdg hi"><span class="spulse hi"></span>${p.stock} cajas</div>`;
+    return `
+    <div class="prod-card reveal">
+      <div class="prod-img" style="background:${p.bg}">
+        <div class="prod-badges"><span class="brand-bdg">${p.brand}</span>${sBdg}</div>
+        <span>${p.emoji}</span>
+      </div>
+      <div class="prod-body">
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-pack">${p.pack}</div>
+        <div class="pricing-tiers">${tiersHTML}</div>
+        <div class="prod-footer">
+          <div class="qty-total">
+            <div class="qty-side">
+              <div class="qlbl">Cantidad (cajas)</div>
+              <div class="qty-ctrl">
+                <button class="qbtn" onclick="chQty(${p.id},-1)">−</button>
+                <div class="qnum" id="q-${p.id}">${q}</div>
+                <button class="qbtn" onclick="chQty(${p.id},1)">+</button>
+              </div>
+            </div>
+            <div class="total-side">
+              <div class="tlbl">Total estimado</div>
+              <div class="tval" id="tv-${p.id}">${fmt(total)}</div>
+              <div class="tsave" id="ts-${p.id}">${save > 0 ? 'Ahorras '+fmt(save) : '&nbsp;'}</div>
+            </div>
+          </div>
+          <button class="add-btn" id="ab-${p.id}" onclick="addCart(${p.id})">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  observeReveal();
+}
+
+// ─── CHANGE QTY ─────────────────────────────────────────
+function chQty(pid, d) {
+  const p = products.find(x => x.id === pid);
+  qtys[pid] = Math.max(1, qtys[pid] + d);
+  const q = qtys[pid];
+  const ti = tierIdx(p, q);
+  const base = p.tiers[0].p;
+  const price = p.tiers[ti].p;
+  const total = price * q;
+  const save = (base - price) * q;
+
+  document.getElementById(`q-${pid}`).textContent = q;
+
+  const tvEl = document.getElementById(`tv-${pid}`);
+  tvEl.textContent = fmt(total);
+  tvEl.classList.remove('price-pop');
+  void tvEl.offsetWidth;
+  tvEl.classList.add('price-pop');
+
+  document.getElementById(`ts-${pid}`).innerHTML = save > 0 ? 'Ahorras ' + fmt(save) : '&nbsp;';
+  document.querySelectorAll(`[data-pid="${pid}"]`).forEach((r, i) => r.classList.toggle('act', i === ti));
+}
+
+// ─── ADD TO CART ─────────────────────────────────────────
+function addCart(pid) {
+  cartTotal++;
+  document.getElementById('cart-n').textContent = cartTotal;
+  const btn = document.getElementById(`ab-${pid}`);
+  const orig = btn.innerHTML;
+  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Agregado`;
+  btn.classList.add('added');
+  setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('added'); }, 1600);
+}
+
+// ─── HERO CARD ───────────────────────────────────────────
+const hTiers = [{min:1,max:4,p:2564},{min:5,max:9,p:2380},{min:10,max:24,p:2179},{min:25,max:9999,p:1980}];
+let hQ = 5;
+function heroQty(d) {
+  hQ = Math.max(1, hQ + d);
+  document.getElementById('h-qty').textContent = hQ;
+  const ti = hTiers.findIndex(t => hQ >= t.min && hQ <= t.max);
+  const base = hTiers[0].p;
+  const price = hTiers[ti].p;
+  const total = price * hQ;
+  const save = (base - price) * hQ;
+  document.getElementById('h-total').textContent = fmt(total);
+  document.getElementById('h-save').textContent = save > 0 ? `Ahorras ${fmt(save)} vs precio base` : '';
+  [0,1,2,3].forEach(i => {
+    const r = document.getElementById(`ht${i}`);
+    if (r) r.className = i === ti ? 'trow-active' : '';
+  });
+}
+
+// ─── SHIPPING CALC ───────────────────────────────────────
+const shipDB = {
+  '44': {city:'<strong>Guadalajara, Jalisco</strong>', time:'<strong>Entrega en 24 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
+  '06': {city:'<strong>Ciudad de México, CDMX</strong>', time:'<strong>Entrega en 48 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
+  '64': {city:'<strong>Monterrey, Nuevo León</strong>', time:'<strong>Entrega en 48–72 h</strong>', cost:'<strong>$450 MXN</strong> (gratis con +$15,000)'},
+  '45': {city:'<strong>Zapopan, Jalisco</strong>', time:'<strong>Entrega en 24 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
+  '97': {city:'<strong>Mérida, Yucatán</strong>', time:'<strong>Entrega en 3–5 días</strong>', cost:'<strong>$680 MXN</strong>'},
+  '20': {city:'<strong>Aguascalientes</strong>', time:'<strong>Entrega en 48 h</strong>', cost:'<strong>$380 MXN</strong> (gratis con +$12,000)'},
+};
+function calcShip() {
+  const cp = document.getElementById('cp-in').value.trim();
+  if (cp.length < 5) return;
+  const d = shipDB[cp.slice(0,2)] || {city:`<strong>CP ${cp}</strong>`,time:'<strong>3–5 días hábiles</strong>',cost:'<strong>Consultar costo</strong>'};
+  document.getElementById('cr-city').innerHTML = d.city;
+  document.getElementById('cr-time').innerHTML = d.time;
+  document.getElementById('cr-cost').innerHTML = d.cost;
+  document.getElementById('calc-res').style.display = 'flex';
+}
+document.getElementById('cp-in').addEventListener('keydown', e => { if (e.key === 'Enter') calcShip(); });
+
+// ─── SCROLL REVEAL ───────────────────────────────────────
+function observeReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+// ─── INIT ────────────────────────────────────────────────
+renderProds();
+observeReveal();
+</script>
+</body>
+</html>
