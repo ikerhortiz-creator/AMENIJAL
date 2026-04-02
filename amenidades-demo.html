@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>amenidades.com — Sistema de abastecimiento hotelero</title>
+<title>amenidades.com — La tienda mayorista para hoteles #1 de México</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -48,37 +48,42 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 .tdot{width:5px;height:5px;background:#6BAF85;border-radius:50%}
 
 /* ── HEADER ── */
-.header{background:rgba(255,255,255,.95);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.header{background:rgba(255,255,255,.97);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
 .header-inner{display:flex;align-items:center;height:68px;gap:20px}
 .logo{font-family:'Instrument Serif',Georgia,serif;font-size:23px;color:var(--text-1);text-decoration:none;letter-spacing:-.02em;flex-shrink:0;margin-right:8px}
 .logo span{color:var(--accent)}
 .nav{display:flex;gap:2px;align-items:center;flex:1}
-.nav a{color:var(--text-2);text-decoration:none;font-size:13.5px;font-weight:500;padding:6px 11px;border-radius:var(--r-sm);transition:all 140ms ease;white-space:nowrap}
-.nav a:hover{color:var(--text-1);background:var(--surface-2)}
+.nav a{color:var(--text-2);text-decoration:none;font-size:13px;font-weight:500;padding:6px 10px;border-radius:var(--r-sm);transition:all 140ms ease;white-space:nowrap}
+.nav a:hover,.nav a.active{color:var(--text-1);background:var(--surface-2)}
+.nav a.active{color:var(--accent);font-weight:600}
 .header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.search-wrap{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:0 12px;height:38px;gap:8px;width:250px;transition:all 200ms}
+.search-wrap{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:0 12px;height:38px;gap:8px;width:220px;transition:all 200ms}
 .search-wrap:focus-within{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-light)}
 .search-wrap input{border:none;background:transparent;outline:none;font-size:13px;color:var(--text-1);width:100%;font-family:inherit}
 .search-wrap input::placeholder{color:var(--text-3)}
 .si{color:var(--text-3);flex-shrink:0}
-.btn-ghost{background:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 14px;font-size:13.5px;font-weight:500;color:var(--text-2);cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-ghost{background:none;border:1px solid var(--border);border-radius:var(--r-sm);padding:8px 14px;font-size:13px;font-weight:500;color:var(--text-2);cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:6px;white-space:nowrap;text-decoration:none}
 .btn-ghost:hover{border-color:var(--text-3);color:var(--text-1)}
-.cart-btn{background:var(--accent);border:none;border-radius:var(--r-sm);padding:8px 16px;font-size:13.5px;font-weight:600;color:#fff;cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.cart-btn{background:var(--accent);border:none;border-radius:var(--r-sm);padding:8px 16px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;transition:all 140ms;font-family:inherit;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .cart-btn:hover{background:var(--accent-hover)}
 .cart-n{background:#fff;color:var(--accent);border-radius:50%;width:19px;height:19px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:19px}
+
+/* ── SECTION SYSTEM ── */
+.page-section{display:none}
+.page-section.active{display:block}
 
 /* ── HERO ── */
 .hero{padding:76px 0 68px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-120px;right:-80px;width:680px;height:680px;background:radial-gradient(circle,var(--accent-light) 0%,transparent 68%);opacity:.5;pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,#FDF3E8 0%,transparent 65%);opacity:.4;pointer-events:none}
-.hero-inner{display:grid;grid-template-columns:1fr 480px;gap:56px;align-items:center;position:relative}
+.hero-inner{display:grid;grid-template-columns:1fr 460px;gap:56px;align-items:center;position:relative}
 .hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:22px}
 .chip-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse-g 2.2s infinite}
 @keyframes pulse-g{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
-.hero h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,3.8vw,52px);line-height:1.08;letter-spacing:-.025em;color:var(--text-1);margin-bottom:18px}
+.hero h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(34px,3.8vw,50px);line-height:1.08;letter-spacing:-.025em;color:var(--text-1);margin-bottom:18px}
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:17px;color:var(--text-2);line-height:1.65;margin-bottom:34px;max-width:460px}
-.hero-ctas{display:flex;gap:12px;margin-bottom:44px}
+.hero-sub{font-size:16px;color:var(--text-2);line-height:1.65;margin-bottom:34px;max-width:460px}
+.hero-ctas{display:flex;gap:12px;margin-bottom:44px;flex-wrap:wrap}
 .btn-primary{background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:13px 26px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-md)}
 .btn-secondary{background:transparent;color:var(--text-1);border:1.5px solid var(--border);border-radius:var(--r-sm);padding:13px 22px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
@@ -90,46 +95,44 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 /* HERO CARD */
 .hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-lg)}
 .hcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
-.hcard-name{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:2px}
+.hcard-name{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:2px}
 .hcard-pack{font-size:12px;color:var(--text-3)}
 .live-badge{display:inline-flex;align-items:center;gap:5px;background:var(--green-bg);color:var(--green);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.02em}
 .live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:live-pulse 1.6s infinite}
 @keyframes live-pulse{0%,100%{opacity:1}50%{opacity:.25}}
-.product-visual{height:150px;background:linear-gradient(135deg,#E8F0EC 0%,#C5DDD0 100%);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:60px;margin-bottom:18px;position:relative;overflow:hidden}
+.product-visual{height:140px;background:linear-gradient(135deg,#E8F0EC 0%,#C5DDD0 100%);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:56px;margin-bottom:18px;position:relative;overflow:hidden}
 .product-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,46,.06) 0%,transparent 50%)}
-
 .vol-label{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .tier-tbl{width:100%;border-collapse:collapse;margin-bottom:16px}
 .tier-tbl tr td{padding:7px 10px;font-size:13px;transition:all 150ms}
-.tier-tbl tr{border-radius:6px;transition:background 150ms}
 .tier-tbl .tc-qty{color:var(--text-2)}
 .tier-tbl .tc-price{font-weight:700;text-align:right}
 .tier-tbl .tc-save{font-size:11px;font-weight:600;color:var(--green);text-align:right}
-.tier-tbl .trow-active td{color:var(--accent)!important}
-.tier-tbl .trow-active .tc-price{color:var(--accent)!important}
 .trow-active{background:var(--accent-light);border-radius:6px}
-.trow-active td:first-child{border-radius:6px 0 0 6px}
-.trow-active td:last-child{border-radius:0 6px 6px 0}
-
+.trow-active td{color:var(--accent)!important}
 .qty-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
 .qty-lbl{font-size:11px;color:var(--text-3);margin-bottom:6px}
 .qty-ctrl{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
-.qbtn{width:36px;height:36px;background:none;border:none;font-size:18px;font-weight:300;cursor:pointer;color:var(--text-2);display:flex;align-items:center;justify-content:center;transition:all 100ms;font-family:inherit;line-height:1}
+.qbtn{width:36px;height:36px;background:none;border:none;font-size:18px;font-weight:300;cursor:pointer;color:var(--text-2);display:flex;align-items:center;justify-content:center;transition:all 100ms;font-family:inherit}
 .qbtn:hover{background:var(--border);color:var(--text-1)}
 .qnum{min-width:44px;text-align:center;font-size:14px;font-weight:700;color:var(--text-1);border-left:1px solid var(--border);border-right:1px solid var(--border);height:36px;display:flex;align-items:center;justify-content:center}
 .total-box{text-align:right}
 .total-lbl{font-size:11px;color:var(--text-3);margin-bottom:2px}
-.total-val{font-size:22px;font-weight:700;color:var(--text-1);letter-spacing:-.025em;transition:all 160ms}
+.total-val{font-size:22px;font-weight:700;color:var(--text-1);letter-spacing:-.025em}
 .total-save{font-size:11.5px;color:var(--green);font-weight:600;min-height:17px}
 .stock-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-3);padding-top:12px;border-top:1px solid var(--border-light);margin-top:2px}
 .stock-live{display:flex;align-items:center;gap:5px;font-weight:600;color:var(--green)}
 .sdot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:live-pulse 1.6s infinite}
 
-/* ── PILLARS ── */
-.pillars{padding:80px 0;background:var(--surface-2);border-bottom:1px solid var(--border)}
+/* ── SECTION HEADERS ── */
 .sec-lbl{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .sec-title{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(26px,2.8vw,38px);letter-spacing:-.02em;color:var(--text-1);line-height:1.12;margin-bottom:14px}
 .sec-sub{font-size:15.5px;color:var(--text-2);line-height:1.65;max-width:560px}
+.see-all{font-size:13.5px;color:var(--accent);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:gap 150ms;cursor:pointer;background:none;border:none;font-family:inherit}
+.see-all:hover{gap:8px}
+
+/* ── PILLARS ── */
+.pillars{padding:80px 0;background:var(--surface-2);border-bottom:1px solid var(--border)}
 .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
 .pillar{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;transition:all 200ms}
 .pillar:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
@@ -140,54 +143,50 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 .pillar-foot{margin-top:20px;padding-top:18px;border-top:1px solid var(--border-light);font-size:13px;color:var(--text-3)}
 .pillar-foot strong{color:var(--accent);font-weight:600}
 
-/* ── SHIPPING CALC ── */
-.shipping-calc{padding:40px 0;background:var(--accent-lighter);border-bottom:1px solid var(--border)}
-.calc-wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.calc-title{font-size:14.5px;font-weight:700;color:var(--text-1);flex-shrink:0;display:flex;align-items:center;gap:8px}
-.calc-fields{display:flex;gap:8px;flex:1;max-width:400px}
-.cp-input{flex:1;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:10px 14px;font-size:14px;font-family:inherit;color:var(--text-1);outline:none;background:#fff;transition:all 150ms}
-.cp-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
-.calc-go{background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 140ms}
-.calc-go:hover{background:var(--accent-hover)}
-.calc-res{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
-.cr-item{display:flex;align-items:center;gap:8px;font-size:13.5px}
-.cr-icon{font-size:16px}
+/* ── CLIENTS STRIP ── */
+.clients-strip{padding:36px 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.clients-inner{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center}
+.client-lbl{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);flex-shrink:0}
+.client-logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.client-logo{font-size:13.5px;font-weight:700;color:var(--text-3);letter-spacing:.02em;opacity:.6}
 
 /* ── CATEGORIES ── */
 .categories{padding:80px 0;border-bottom:1px solid var(--border);background:var(--surface)}
-.cats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 .cat-card{border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:all 200ms;background:#fff}
 .cat-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
-.cat-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative}
-.cat-body{padding:16px}
+.cat-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative}
+.cat-body{padding:16px 18px}
 .cat-title{font-size:14.5px;font-weight:700;color:var(--text-1);margin-bottom:3px}
-.cat-count{font-size:12px;color:var(--text-3);margin-bottom:8px}
+.cat-count{font-size:12px;color:var(--text-3);margin-bottom:10px}
+.cat-subs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.cat-sub-tag{font-size:11px;background:var(--surface-2);color:var(--text-3);padding:2px 8px;border-radius:100px;border:1px solid var(--border-light)}
 .cat-arrow{font-size:12.5px;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:3px}
 
 /* ── PRODUCTS ── */
 .products{padding:80px 0;border-bottom:1px solid var(--border);background:var(--bg)}
 .products-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
-.see-all{font-size:13.5px;color:var(--accent);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:4px;transition:gap 150ms}
-.see-all:hover{gap:8px}
+.prod-tabs{display:flex;gap:4px;background:var(--surface-2);padding:4px;border-radius:var(--r-md);border:1px solid var(--border)}
+.prod-tab{background:none;border:none;border-radius:var(--r-sm);padding:7px 16px;font-size:13px;font-weight:500;color:var(--text-3);cursor:pointer;font-family:inherit;transition:all 140ms;white-space:nowrap}
+.prod-tab.active{background:#fff;color:var(--text-1);font-weight:600;box-shadow:var(--shadow-sm)}
 .prods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
 .prod-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all 200ms}
 .prod-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
-.prod-img{height:175px;display:flex;align-items:center;justify-content:center;position:relative;font-size:52px}
+.prod-img{height:170px;display:flex;align-items:center;justify-content:center;position:relative;font-size:52px}
 .prod-badges{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
-.brand-bdg{background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.6);border-radius:100px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--text-1);white-space:nowrap;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.brand-bdg{background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.6);border-radius:100px;padding:3px 10px;font-size:11px;font-weight:600;color:var(--text-1);white-space:nowrap}
 .stock-bdg{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.92);backdrop-filter:blur(4px);border-radius:100px;padding:3px 9px;font-size:11px;font-weight:600;white-space:nowrap}
 .stock-bdg.hi{color:var(--green)}
 .stock-bdg.lo{color:var(--amber)}
 .spulse{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .spulse.hi{background:var(--green);animation:live-pulse 1.6s infinite}
 .spulse.lo{background:var(--amber);animation:live-pulse 1s infinite}
-
+.disc-bdg{background:var(--amber-bg);color:var(--amber);font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap}
 .prod-body{padding:18px}
-.prod-name{font-size:14.5px;font-weight:700;color:var(--text-1);margin-bottom:2px;letter-spacing:-.01em}
+.prod-name{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:2px;letter-spacing:-.01em;line-height:1.3}
 .prod-pack{font-size:12px;color:var(--text-3);margin-bottom:14px}
 .pricing-tiers{background:var(--surface-2);border-radius:var(--r-sm);border:1px solid var(--border-light);overflow:hidden;margin-bottom:14px}
-.trow{display:grid;grid-template-columns:1fr auto auto;gap:6px;padding:7px 11px;font-size:12.5px;transition:background 140ms;border-bottom:1px solid var(--border-light)}
+.trow{display:grid;grid-template-columns:1fr auto auto;gap:6px;padding:7px 11px;font-size:12.5px;border-bottom:1px solid var(--border-light)}
 .trow:last-child{border-bottom:none}
 .trow.act{background:var(--accent-light)}
 .trow-qty{color:var(--text-2)}
@@ -198,67 +197,215 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 .prod-footer{display:flex;flex-direction:column;gap:11px}
 .qty-total{display:flex;align-items:center;justify-content:space-between}
 .qty-side .qlbl{font-size:11px;color:var(--text-3);margin-bottom:5px}
+.qty-ctrl2{display:flex;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden}
+.qbtn2{width:30px;height:30px;background:none;border:none;font-size:16px;cursor:pointer;color:var(--text-2);display:flex;align-items:center;justify-content:center;font-family:inherit}
+.qbtn2:hover{background:var(--border)}
+.qnum2{min-width:36px;text-align:center;font-size:13px;font-weight:700;color:var(--text-1);border-left:1px solid var(--border);border-right:1px solid var(--border);height:30px;display:flex;align-items:center;justify-content:center}
 .total-side{text-align:right}
 .tlbl{font-size:11px;color:var(--text-3);margin-bottom:1px}
 .tval{font-size:18px;font-weight:700;color:var(--text-1);letter-spacing:-.02em}
 .tsave{font-size:11.5px;color:var(--green);font-weight:600;min-height:16px}
 .add-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:all 140ms;display:flex;align-items:center;justify-content:center;gap:7px}
 .add-btn:hover{background:var(--accent-hover)}
-.add-btn:active{transform:scale(.99)}
 .add-btn.added{background:var(--green)}
 
-/* ── SYSTEM VALUE ── */
-.sys-val{padding:80px 0;background:var(--accent)}
-.sys-val .sec-lbl{color:rgba(255,255,255,.4)}
-.sys-val .sec-title{color:#fff}
-.sys-val .sec-sub{color:rgba(255,255,255,.65);max-width:600px}
+/* ── BRANDS ── */
+.brands{padding:80px 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.brands-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.brand-card{border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 20px;text-align:center;background:#fff;transition:all 200ms;cursor:pointer}
+.brand-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--accent-light)}
+.brand-icon{width:56px;height:56px;background:var(--accent-light);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
+.brand-name{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:6px}
+.brand-desc{font-size:12px;color:var(--text-3);line-height:1.55}
+
+/* ── DISPENSADORES ── */
+.dispensers{padding:80px 0;background:var(--accent);border-bottom:1px solid rgba(255,255,255,.1)}
+.dispensers .sec-lbl{color:rgba(255,255,255,.4)}
+.dispensers .sec-title{color:#fff}
+.dispensers .sec-sub{color:rgba(255,255,255,.65);max-width:620px}
+.disp-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:52px;align-items:start}
+.disp-features{display:flex;flex-direction:column;gap:20px}
+.disp-feat{display:flex;align-items:flex-start;gap:16px;padding:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg)}
+.disp-feat-icon{width:44px;height:44px;background:rgba(255,255,255,.12);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.disp-feat-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.disp-feat-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+.disp-steps{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-xl);padding:32px}
+.disp-steps-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.disp-step{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.disp-step:last-child{border-bottom:none}
+.step-n{width:32px;height:32px;background:var(--accent-light);color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.step-txt{color:#fff;font-size:14px;line-height:1.5}
+.step-txt strong{display:block;font-weight:700;margin-bottom:2px}
+.step-txt span{color:rgba(255,255,255,.6);font-size:13px}
+.disp-cta{margin-top:32px;display:flex;gap:12px}
+.btn-white{background:#fff;color:var(--accent);border:none;border-radius:var(--r-sm);padding:13px 26px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-white:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:var(--r-sm);padding:13px 22px;font-size:15px;font-weight:500;cursor:pointer;font-family:inherit;transition:all 150ms;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.07)}
+.disp-lines{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap}
+.disp-line{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-md);padding:14px 18px;flex:1;min-width:180px}
+.dl-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px}
+.dl-sub{font-size:12px;color:rgba(255,255,255,.5)}
+
+/* ── SYS VALUE (Comparativo) ── */
+.sys-val{padding:80px 0;background:var(--surface-2);border-bottom:1px solid var(--border)}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
-.cmp-col{border-radius:var(--r-lg);padding:32px}
-.cmp-col.theirs{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
-.cmp-col.ours{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22)}
-.cmp-head{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;color:rgba(255,255,255,.45)}
-.cmp-col.ours .cmp-head{color:#A8D5B5}
-.feat{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px}
+.cmp-col{border-radius:var(--r-lg);padding:32px;border:1px solid var(--border)}
+.cmp-col.theirs{background:var(--surface)}
+.cmp-col.ours{background:var(--accent);border-color:var(--accent)}
+.cmp-head{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px;color:var(--text-3)}
+.cmp-col.ours .cmp-head{color:rgba(255,255,255,.5)}
+.feat{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid var(--border-light);font-size:13.5px}
+.cmp-col.ours .feat{border-bottom-color:rgba(255,255,255,.07)}
 .feat:last-child{border-bottom:none}
 .ficon{width:20px;flex-shrink:0;margin-top:1px;font-size:14px}
-.ftxt{color:rgba(255,255,255,.65);line-height:1.5}
-.ftxt.on{color:#fff;font-weight:500}
+.ftxt{color:var(--text-3);line-height:1.5}
+.ftxt.on{color:var(--text-1);font-weight:500}
+.cmp-col.ours .ftxt.on{color:#fff}
+.cmp-col.ours .ftxt{color:rgba(255,255,255,.55)}
+
+/* ── PAYMENTS ── */
+.payments{padding:80px 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.pay-card{border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;background:var(--bg);transition:all 200ms}
+.pay-card:hover{box-shadow:var(--shadow-md)}
+.pay-icon{width:52px;height:52px;background:var(--accent-light);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.pay-title{font-size:16px;font-weight:700;color:var(--text-1);margin-bottom:8px}
+.pay-desc{font-size:13.5px;color:var(--text-2);line-height:1.65;margin-bottom:16px}
+.pay-badges{display:flex;flex-wrap:wrap;gap:6px}
+.pay-badge{font-size:11.5px;font-weight:600;background:var(--surface-2);color:var(--text-2);padding:4px 10px;border-radius:100px;border:1px solid var(--border)}
+.security-note{margin-top:32px;background:var(--accent-lighter);border:1px solid var(--accent-light);border-radius:var(--r-lg);padding:20px 24px;display:flex;align-items:flex-start;gap:14px}
+.sn-icon{font-size:24px;flex-shrink:0}
+.sn-title{font-size:14px;font-weight:700;color:var(--text-1);margin-bottom:4px}
+.sn-desc{font-size:13px;color:var(--text-2);line-height:1.6}
+
+/* ── ABOUT / QUIÉNES SOMOS ── */
+.about{padding:80px 0;background:var(--bg);border-bottom:1px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;margin-top:52px}
+.about-blocks{display:flex;flex-direction:column;gap:20px}
+.about-block{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);transition:all 200ms}
+.about-block:hover{box-shadow:var(--shadow-sm)}
+.ab-icon{font-size:22px;margin-bottom:12px}
+.ab-title{font-size:15px;font-weight:700;color:var(--text-1);margin-bottom:7px}
+.ab-desc{font-size:13.5px;color:var(--text-2);line-height:1.65}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.about-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;text-align:center}
+.as-val{font-size:28px;font-weight:700;color:var(--accent);letter-spacing:-.025em;margin-bottom:4px}
+.as-lbl{font-size:12px;color:var(--text-3);line-height:1.4}
+.about-certs{display:flex;gap:10px;margin-top:16px}
+.cert-badge{background:var(--accent-light);border:1px solid rgba(28,58,46,.15);border-radius:var(--r-sm);padding:6px 14px;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.04em}
+.clients-row{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;margin-top:16px}
+.cr-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.clients-logos{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.cl-logo{font-size:13px;font-weight:700;color:var(--text-2);background:var(--surface-2);padding:6px 14px;border-radius:var(--r-sm);border:1px solid var(--border)}
+
+/* ── FAQ ── */
+.faq{padding:80px 0;background:var(--surface);border-bottom:1px solid var(--border)}
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;margin-top:52px}
+.faq-list{display:flex;flex-direction:column;gap:4px}
+.faq-item{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:#fff}
+.faq-q{padding:18px 20px;font-size:14.5px;font-weight:600;color:var(--text-1);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background 140ms;user-select:none}
+.faq-q:hover{background:var(--surface-2)}
+.faq-arrow{font-size:16px;color:var(--text-3);transition:transform 200ms;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 20px 18px;font-size:13.5px;color:var(--text-2);line-height:1.7;border-top:1px solid var(--border-light)}
+.faq-item.open .faq-a{display:block;padding-top:14px}
+.faq-contact-box{background:var(--accent);border-radius:var(--r-xl);padding:36px;color:#fff;position:sticky;top:90px}
+.fcb-title{font-family:'Instrument Serif',Georgia,serif;font-size:26px;margin-bottom:12px;line-height:1.2}
+.fcb-sub{font-size:14px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:28px}
+.contact-options{display:flex;flex-direction:column;gap:12px}
+.contact-opt{display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);cursor:pointer;transition:all 150ms;text-decoration:none}
+.contact-opt:hover{background:rgba(255,255,255,.14)}
+.co-icon{font-size:20px;flex-shrink:0}
+.co-label{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:2px}
+.co-val{font-size:14px;font-weight:600;color:#fff}
 
 /* ── TESTIMONIAL ── */
-.testimonial{padding:80px 0;border-bottom:1px solid var(--border);background:var(--surface)}
+.testimonial{padding:80px 0;border-bottom:1px solid var(--border);background:var(--surface-2)}
 .test-inner{max-width:740px;margin:0 auto;text-align:center}
 .qmark{font-family:'Instrument Serif',Georgia,serif;font-size:80px;color:var(--accent-light);line-height:.45;margin-bottom:28px;display:block}
-.qtext{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,2.4vw,25px);color:var(--text-1);line-height:1.45;margin-bottom:32px;font-style:italic}
+.qtext{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(19px,2.4vw,24px);color:var(--text-1);line-height:1.45;margin-bottom:32px;font-style:italic}
 .q-author{display:flex;align-items:center;justify-content:center;gap:14px}
 .q-avatar{width:46px;height:46px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .q-name{font-weight:700;font-size:15px;color:var(--text-1);text-align:left}
 .q-role{font-size:12.5px;color:var(--text-3);text-align:left}
+
+/* ── NEWSLETTER ── */
+.newsletter{padding:56px 0;background:var(--accent-lighter);border-bottom:1px solid var(--accent-light)}
+.nl-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.nl-text .sec-title{font-size:26px;margin-bottom:6px}
+.nl-text .sec-sub{font-size:14px;max-width:420px}
+.nl-form{display:flex;gap:8px;flex-wrap:wrap}
+.nl-input{border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 16px;font-size:14px;font-family:inherit;color:var(--text-1);outline:none;background:#fff;transition:all 150ms;min-width:280px}
+.nl-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+.nl-btn{background:var(--accent);color:#fff;border:none;border-radius:var(--r-sm);padding:11px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 140ms}
+.nl-btn:hover{background:var(--accent-hover)}
 
 /* ── FOOTER ── */
 .footer{background:var(--text-1);color:rgba(255,255,255,.55);padding:56px 0 28px}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
 .ft-logo{font-family:'Instrument Serif',Georgia,serif;font-size:21px;color:#fff;margin-bottom:11px}
 .ft-desc{font-size:13px;line-height:1.7;margin-bottom:18px}
-.ft-certs{display:flex;gap:8px}
+.ft-certs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .cert{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:5px 12px;font-size:11px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.04em}
+.ft-social{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:all 140ms}
+.social-btn:hover{background:rgba(255,255,255,.14)}
 .ft-col-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px}
 .ft-links{list-style:none}
 .ft-links li{margin-bottom:9px}
 .ft-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13.5px;transition:color 130ms}
 .ft-links a:hover{color:#fff}
-.ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.ft-bottom{padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-wrap:wrap;gap:12px}
+.ft-legal{display:flex;gap:20px;flex-wrap:wrap}
+.ft-legal a{color:rgba(255,255,255,.4);text-decoration:none;transition:color 130ms}
+.ft-legal a:hover{color:rgba(255,255,255,.8)}
 
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal[data-delay="1"]{transition-delay:.1s}
-.reveal[data-delay="2"]{transition-delay:.18s}
-.reveal[data-delay="3"]{transition-delay:.26s}
-.reveal[data-delay="4"]{transition-delay:.34s}
+/* ── PROMOTIONS PAGE ── */
+.promo-hero{padding:60px 0 48px;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-mid) 100%);position:relative;overflow:hidden}
+.promo-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 65%);pointer-events:none}
+.promo-hero-inner{position:relative}
+.ph-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.ph-title{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,3.5vw,46px);color:#fff;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px}
+.ph-sub{font-size:16px;color:rgba(255,255,255,.7);max-width:500px;margin-bottom:28px}
+.promo-stats{display:flex;gap:32px;flex-wrap:wrap}
+.ps{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r-md);padding:14px 22px;text-align:center}
+.ps-val{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.ps-lbl{font-size:11px;color:rgba(255,255,255,.6)}
+.promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.promo-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all 200ms}
+.promo-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.pc-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.pc-disc-banner{position:absolute;top:12px;right:12px;background:var(--amber);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px}
+.pc-body{padding:18px}
+.pc-name{font-size:14.5px;font-weight:700;color:var(--text-1);margin-bottom:4px;line-height:1.3}
+.pc-brand{font-size:12px;color:var(--text-3);margin-bottom:12px}
+.pc-pricing{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.pc-price-new{font-size:20px;font-weight:700;color:var(--accent);letter-spacing:-.02em}
+.pc-price-old{font-size:13px;color:var(--text-3);text-decoration:line-through}
+.pc-pack{font-size:12px;color:var(--text-3);margin-bottom:14px}
 
-/* ── PRICE ANIM ── */
-@keyframes price-pop{0%{opacity:.5;transform:scale(.97)}100%{opacity:1;transform:scale(1)}}
-.price-pop{animation:price-pop 180ms ease forwards}
+/* RESPONSIVE FIXES */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-card{max-width:480px}
+  .pillars-grid{grid-template-columns:1fr 1fr}
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .prods-grid{grid-template-columns:1fr 1fr}
+  .brands-grid{grid-template-columns:1fr 1fr 1fr}
+  .compare-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .disp-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .faq-grid{grid-template-columns:1fr}
+  .promo-grid{grid-template-columns:1fr 1fr}
+  .pay-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .pillars-grid,.prods-grid,.cats-grid,.brands-grid,.promo-grid,.pay-grid{grid-template-columns:1fr}
+  .hero-metrics{flex-wrap:wrap;gap:20px}
+  .nav{display:none}
+}
 </style>
 </head>
 <body>
@@ -267,10 +414,11 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 <div class="trust-bar">
   <div class="container">
     <div class="trust-bar-inner">
-      <div class="trust-item"><span class="tdot"></span>Inventario sincronizado en tiempo real</div>
-      <div class="trust-item"><span class="tdot"></span>Precios por volumen automáticos</div>
-      <div class="trust-item"><span class="tdot"></span>Envío calculado antes de pagar</div>
-      <div class="trust-item"><span class="tdot"></span>Crédito empresarial 30 / 60 días</div>
+      <div class="trust-item"><span class="tdot"></span>Envío gratis a todo México</div>
+      <div class="trust-item"><span class="tdot"></span>Entrega en 48 hrs en stock</div>
+      <div class="trust-item"><span class="tdot"></span>+25 años de experiencia hotelera</div>
+      <div class="trust-item"><span class="tdot"></span>Certificación ISO · GMP</div>
+      <div class="trust-item"><span class="tdot"></span>WhatsApp: +52 334 170 2184</div>
     </div>
   </div>
 </div>
@@ -279,470 +427,1075 @@ body{background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden}
 <header class="header">
   <div class="container">
     <div class="header-inner">
-      <a href="#" class="logo">amen<span>idades</span></a>
+      <a class="logo" href="#" onclick="showSection('inicio')">amenidades<span>.com</span></a>
       <nav class="nav">
-        <a href="#">Blancos</a>
-        <a href="#">Amenidades</a>
-        <a href="#">Baño</a>
-        <a href="#">Spa</a>
-        <a href="#productos">Bestsellers</a>
-        <a href="#">Marcas</a>
+        <a href="#" onclick="showSection('inicio')" id="nav-inicio" class="active">Inicio</a>
+        <a href="#" onclick="showSection('categorias')" id="nav-categorias">Categorías</a>
+        <a href="#" onclick="showSection('promociones')" id="nav-promociones">Promociones</a>
+        <a href="#" onclick="showSection('marcas')" id="nav-marcas">Nuestras Marcas</a>
+        <a href="#" onclick="showSection('nosotros')" id="nav-nosotros">¿Quiénes Somos?</a>
+        <a href="#" onclick="showSection('pagos')" id="nav-pagos">Formas de Pago</a>
+        <a href="#" onclick="showSection('dispensadores')" id="nav-dispensadores">Dispensadores</a>
       </nav>
       <div class="header-actions">
         <div class="search-wrap">
-          <svg class="si" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <input type="text" placeholder="Busca por producto, SKU o marca…">
+          <svg class="si" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" placeholder="Buscar productos…">
         </div>
-        <button class="btn-ghost">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          Mi cuenta
-        </button>
-        <button class="cart-btn" id="cart-btn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <a class="btn-ghost" href="#" onclick="showSection('nosotros')">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Ingresar
+        </a>
+        <button class="cart-btn">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           Carrito
-          <span class="cart-n" id="cart-n">0</span>
+          <span class="cart-n">0</span>
         </button>
       </div>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <!-- LEFT -->
-      <div>
-        <div class="hero-chip"><span class="chip-dot"></span>Mayorista hotelero · México</div>
-        <h1>El sistema de<br>abastecimiento hotelero<br><em>más eficiente</em> de México</h1>
-        <p class="hero-sub">Inventario en tiempo real. Precios que se ajustan solos según tu volumen. Envío calculado antes de pagar. Todo sin llamadas ni negociaciones.</p>
-        <div class="hero-ctas">
-          <a href="#productos" class="btn-primary">
-            Ver catálogo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="#" class="btn-secondary">Solicitar cuenta empresarial</a>
-        </div>
-        <div class="hero-metrics">
-          <div><div class="m-val">3,200+</div><div class="m-lbl">hoteles activos</div></div>
-          <div><div class="m-val">19</div><div class="m-lbl">marcas exclusivas</div></div>
-          <div><div class="m-val">48 h</div><div class="m-lbl">entrega CDMX</div></div>
-        </div>
-      </div>
+<!-- ════════════════════════════════════════
+     PÁGINA: INICIO
+════════════════════════════════════════ -->
+<div id="section-inicio" class="page-section active">
 
-      <!-- RIGHT: INTERACTIVE CARD -->
-      <div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-chip"><span class="chip-dot"></span>La tienda mayorista para hoteles #1 de México</div>
+          <h1>Todo lo que tu hotel necesita, <em>en un solo lugar</em></h1>
+          <p class="hero-sub">Desde amenidades y blancos hasta electrónicos y muebles. Precios mayoristas, envío gratis y entrega en 48 horas para todo México.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#" onclick="showSection('categorias')">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Ver Catálogo
+            </a>
+            <a class="btn-secondary" href="#" onclick="showSection('dispensadores')">Programa Dispensadores</a>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <div class="m-val">1997</div>
+              <div class="m-lbl">Fundación Amenijal</div>
+            </div>
+            <div>
+              <div class="m-val">10+</div>
+              <div class="m-lbl">Marcas exclusivas</div>
+            </div>
+            <div>
+              <div class="m-val">48h</div>
+              <div class="m-lbl">Entrega en stock</div>
+            </div>
+            <div>
+              <div class="m-val">ISO</div>
+              <div class="m-lbl">Certificado · GMP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO PRODUCT CARD -->
         <div class="hero-card">
           <div class="hcard-top">
             <div>
-              <div class="hcard-name">Shampoo Natuá Organia</div>
-              <div class="hcard-pack">25 ml · 440 piezas por caja</div>
+              <div class="hcard-name">Shampoo 25 ml Natuá Orgánia</div>
+              <div class="hcard-pack">440 piezas/caja · Orgánico</div>
             </div>
-            <div class="live-badge"><span class="live-dot"></span>LIVE</div>
+            <div class="live-badge"><span class="live-dot"></span>En stock</div>
           </div>
           <div class="product-visual">🧴</div>
-          <div class="vol-label">Precio por volumen</div>
+          <div class="vol-label">Precios por volumen</div>
           <table class="tier-tbl">
-            <tr id="ht0"><td class="tc-qty">1 – 4 cajas</td><td class="tc-price">$2,564</td><td class="tc-save"></td></tr>
-            <tr id="ht1" class="trow-active"><td class="tc-qty">5 – 9 cajas</td><td class="tc-price">$2,380</td><td class="tc-save">↓ 7%</td></tr>
-            <tr id="ht2"><td class="tc-qty">10 – 24 cajas</td><td class="tc-price">$2,179</td><td class="tc-save">↓ 15%</td></tr>
-            <tr id="ht3"><td class="tc-qty">25+ cajas</td><td class="tc-price">$1,980</td><td class="tc-save">↓ 23%</td></tr>
+            <tr><td class="tc-qty">1 – 14 cajas</td><td class="tc-price">$2,564.01</td><td class="tc-save"></td></tr>
+            <tr class="trow-active"><td class="tc-qty">15+ cajas</td><td class="tc-price">$2,179.41</td><td class="tc-save">−15%</td></tr>
           </table>
           <div class="qty-row">
             <div>
-              <div class="qty-lbl">Cantidad de cajas</div>
+              <div class="qty-lbl">Cajas</div>
               <div class="qty-ctrl">
-                <button class="qbtn" onclick="heroQty(-1)">−</button>
-                <div class="qnum" id="h-qty">5</div>
-                <button class="qbtn" onclick="heroQty(1)">+</button>
+                <button class="qbtn" onclick="changeQty(-1)">−</button>
+                <span class="qnum" id="heroQty">15</span>
+                <button class="qbtn" onclick="changeQty(1)">+</button>
               </div>
             </div>
             <div class="total-box">
               <div class="total-lbl">Total estimado</div>
-              <div class="total-val" id="h-total">$11,900</div>
-              <div class="total-save" id="h-save">Ahorras $920 vs precio base</div>
+              <div class="total-val" id="heroTotal">$32,691.15</div>
+              <div class="total-save">Ahorro: $5,773.50 MXN</div>
             </div>
           </div>
           <div class="stock-row">
-            <div class="stock-live"><span class="sdot"></span>38 cajas disponibles</div>
-            <span>Actualizado hace 2 min</span>
+            <div class="stock-live"><span class="sdot"></span>15 cajas disponibles</div>
+            <span>Actualizado hoy</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PILLARS -->
-<section class="pillars">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-lbl">Cómo funciona</div>
-      <h2 class="sec-title">No es una tienda.<br>Es tu sistema de abastecimiento.</h2>
-      <p class="sec-sub">Detrás de cada producto hay tecnología que automatiza todo el proceso: precio, stock y envío resueltos antes de que llegues al checkout.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar reveal" data-delay="1">
-        <div class="pillar-num">01</div>
-        <div class="pillar-icon">📦</div>
-        <div class="pillar-title">Inventario en tiempo real</div>
-        <p class="pillar-desc">Nuestro catálogo está conectado directamente a nuestro ERP. Lo que ves en pantalla existe en el almacén. Sin sorpresas ni cancelaciones post-compra.</p>
-        <div class="pillar-foot"><strong>Sincronización cada 60 segundos.</strong> Siempre exacto.</div>
-      </div>
-      <div class="pillar reveal" data-delay="2">
-        <div class="pillar-num">02</div>
-        <div class="pillar-icon">💰</div>
-        <div class="pillar-title">Precio que se ajusta solo</div>
-        <p class="pillar-desc">Cambia la cantidad y el precio baja automáticamente al tier que te corresponde. Sin llamadas, sin cotizaciones manuales, sin negociación.</p>
-        <div class="pillar-foot"><strong>Hasta 25% de ahorro</strong> en pedidos de alto volumen.</div>
-      </div>
-      <div class="pillar reveal" data-delay="3">
-        <div class="pillar-num">03</div>
-        <div class="pillar-icon">🚚</div>
-        <div class="pillar-title">Envío calculado antes de pagar</div>
-        <p class="pillar-desc">Ingresa tu código postal y el sistema calcula costo y tiempo de entrega al instante. El precio total que ves es el precio que pagas.</p>
-        <div class="pillar-foot"><strong>Envío gratis</strong> en pedidos mayores a $8,000 MXN.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SHIPPING CALC -->
-<section class="shipping-calc">
-  <div class="container">
-    <div class="calc-wrap">
-      <div class="calc-title">🚚 Calcula tu envío ahora:</div>
-      <div class="calc-fields">
-        <input type="text" class="cp-input" id="cp-in" placeholder="Código postal…" maxlength="5">
-        <button class="calc-go" onclick="calcShip()">Calcular</button>
-      </div>
-      <div class="calc-res" id="calc-res" style="display:none">
-        <div class="cr-item"><span class="cr-icon">📍</span><span id="cr-city"></span></div>
-        <div class="cr-item"><span class="cr-icon">⏱</span><span id="cr-time"></span></div>
-        <div class="cr-item"><span class="cr-icon">💳</span><span id="cr-cost"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-lbl">Catálogo completo</div>
-      <h2 class="sec-title">Todo lo que tu hotel necesita</h2>
-    </div>
-    <div class="cats-grid">
-      <div class="cat-card reveal" data-delay="1">
-        <div class="cat-img" style="background:linear-gradient(135deg,#E8F0EC,#C5DDD0)">🛁</div>
-        <div class="cat-body">
-          <div class="cat-title">Amenidades de Baño</div>
-          <div class="cat-count">142 productos · 12 marcas</div>
-          <div class="cat-arrow">Explorar <span>→</span></div>
-        </div>
-      </div>
-      <div class="cat-card reveal" data-delay="2">
-        <div class="cat-img" style="background:linear-gradient(135deg,#EEF2FB,#D5DFEE)">🛏</div>
-        <div class="cat-body">
-          <div class="cat-title">Blancos &amp; Lencería</div>
-          <div class="cat-count">87 productos · 6 marcas</div>
-          <div class="cat-arrow">Explorar <span>→</span></div>
-        </div>
-      </div>
-      <div class="cat-card reveal" data-delay="3">
-        <div class="cat-img" style="background:linear-gradient(135deg,#F5EEF5,#E0D0E0)">💆</div>
-        <div class="cat-body">
-          <div class="cat-title">Spa &amp; Bienestar</div>
-          <div class="cat-count">56 productos · 8 marcas</div>
-          <div class="cat-arrow">Explorar <span>→</span></div>
-        </div>
-      </div>
-      <div class="cat-card reveal" data-delay="4">
-        <div class="cat-img" style="background:linear-gradient(135deg,#FDF3E8,#EED8B8)">📺</div>
-        <div class="cat-body">
-          <div class="cat-title">Electrónicos</div>
-          <div class="cat-count">34 productos · 5 marcas</div>
-          <div class="cat-arrow">Explorar <span>→</span></div>
+  <!-- CLIENTES -->
+  <div class="clients-strip">
+    <div class="container">
+      <div class="clients-inner">
+        <span class="client-lbl">Confían en nosotros</span>
+        <div class="client-logos">
+          <span class="client-logo">BEST WESTERN</span>
+          <span class="client-logo">HYATT</span>
+          <span class="client-logo">MARRIOTT</span>
+          <span class="client-logo">CROWNE PLAZA</span>
+          <span class="client-logo">IHG</span>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- PRODUCTS -->
-<section class="products" id="productos">
-  <div class="container">
-    <div class="products-hd reveal">
-      <div>
-        <div class="sec-lbl">Más vendidos</div>
-        <h2 class="sec-title">Bestsellers del mes</h2>
+  <!-- PILARES -->
+  <section class="pillars">
+    <div class="container">
+      <div class="sec-lbl">Por qué elegirnos</div>
+      <h2 class="sec-title">La solución integral para la industria hotelera</h2>
+      <p class="sec-sub">Más que una plataforma de compras — somos tu socio estratégico de abastecimiento desde 1997.</p>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-icon">🚚</div>
+          <div class="pillar-title">Envío gratis a todo México</div>
+          <p class="pillar-desc">Tu pedido llega sin costos adicionales a cualquier punto del país. Aplican restricciones para zonas remotas.</p>
+          <div class="pillar-foot"><strong>48 horas</strong> en productos con stock disponible</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-icon">💰</div>
+          <div class="pillar-title">Precios mayoristas reales</div>
+          <p class="pillar-desc">Accede a estructuras de precio por volumen pensadas para hoteles. Cuantas más cajas, mayor tu ahorro.</p>
+          <div class="pillar-foot">Hasta <strong>20% de descuento</strong> en pedidos grandes</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-icon">🏆</div>
+          <div class="pillar-title">Certificación ISO y GMP</div>
+          <p class="pillar-desc">Nuestros productos cumplen los más altos estándares de calidad y responsabilidad medioambiental internacional.</p>
+          <div class="pillar-foot">Certificado por <strong>ISO</strong> y <strong>Buenas Prácticas de Manufactura</strong></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">04</div>
+          <div class="pillar-icon">🌿</div>
+          <div class="pillar-title">Compromiso ecológico</div>
+          <p class="pillar-desc">Reducción de plástico de un solo uso hasta 60% con nuestro programa de dispensadores y productos biodegradables.</p>
+          <div class="pillar-foot">Equivalente a eliminar <strong>17,000 botellas</strong> por tonelada</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">05</div>
+          <div class="pillar-icon">🔒</div>
+          <div class="pillar-title">Pagos 100% seguros</div>
+          <p class="pillar-desc">Procesamos con Openpay: tarjetas, SPEI y tiendas de conveniencia. Nunca almacenamos datos sensibles.</p>
+          <div class="pillar-foot">Protegido con <strong>SSL</strong> y encriptación de extremo a extremo</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">06</div>
+          <div class="pillar-icon">🎯</div>
+          <div class="pillar-title">Soporte especializado</div>
+          <p class="pillar-desc">Nuestro equipo conoce la industria hotelera. Disponibles por WhatsApp para orientarte en cada pedido.</p>
+          <div class="pillar-foot">WhatsApp: <strong>+52 334 170 2184</strong></div>
+        </div>
       </div>
-      <a href="#" class="see-all">Ver catálogo completo →</a>
     </div>
-    <div class="prods-grid" id="prods-grid"></div>
-  </div>
-</section>
+  </section>
 
-<!-- SYSTEM VALUE -->
-<section class="sys-val">
-  <div class="container">
-    <div class="reveal">
-      <div class="sec-lbl">Por qué amenidades.com</div>
-      <h2 class="sec-title">Infraestructura construida<br>para hoteles</h2>
-      <p class="sec-sub">No somos una tienda montada sobre plataforma genérica. Somos un sistema de abastecimiento diseñado desde cero para el sector hotelero mexicano.</p>
-    </div>
-    <div class="compare-grid">
-      <div class="cmp-col theirs reveal" data-delay="1">
-        <div class="cmp-head">Proveedor tradicional</div>
-        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Inventario actualizado manualmente — riesgo real de vender lo que no existe</div></div>
-        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Precios fijos — tienes que llamar para negociar descuento por volumen</div></div>
-        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Costo de envío visible solo en el último paso del checkout</div></div>
-        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Factura manual — días de espera para recibirla</div></div>
-        <div class="feat"><div class="ficon">✗</div><div class="ftxt">Sin historial de pedidos ni recompra rápida desde plataforma</div></div>
-      </div>
-      <div class="cmp-col ours reveal" data-delay="2">
-        <div class="cmp-head">amenidades.com</div>
-        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Inventario sincronizado con ERP cada 60 seg — siempre exacto, sin excepciones</div></div>
-        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Precio se ajusta automáticamente al cambiar cantidad — en tiempo real, sin llamadas</div></div>
-        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Envío calculado por código postal antes de llegar al checkout</div></div>
-        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Factura PDF generada al instante, descargable desde tu cuenta</div></div>
-        <div class="feat"><div class="ficon">✓</div><div class="ftxt on">Recompra en 2 minutos desde el historial — con cantidades pre-llenadas</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="container">
-    <div class="test-inner reveal">
-      <span class="qmark">"</span>
-      <p class="qtext">Antes tardábamos tres días en procesar una orden de reabastecimiento. Con amenidades.com son veinte minutos. El inventario siempre está actualizado, el precio ya incluye nuestro descuento por volumen, y la factura llega sola al correo.</p>
-      <div class="q-author">
-        <div class="q-avatar">👩</div>
+  <!-- PRODUCTOS DESTACADOS (vista previa) -->
+  <section class="products">
+    <div class="container">
+      <div class="products-hd">
         <div>
-          <div class="q-name">María González</div>
-          <div class="q-role">Directora de Operaciones · Hotel Presidente · 180 habitaciones · CDMX</div>
+          <div class="sec-lbl">Más vendidos</div>
+          <h2 class="sec-title">Productos estrella</h2>
+        </div>
+        <button class="see-all" onclick="showSection('categorias')">Ver todo el catálogo →</button>
+      </div>
+      <div class="prods-grid" id="homeProducts"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <div class="container">
+      <div class="test-inner">
+        <span class="qmark">"</span>
+        <p class="qtext">Amenidades.com transformó nuestra operación. Encontramos todo lo que necesitamos en un solo lugar, con precios muy competitivos y entregas puntuales a nuestras propiedades en todo México.</p>
+        <div class="q-author">
+          <div class="q-avatar">🏨</div>
+          <div>
+            <div class="q-name">Director de Compras</div>
+            <div class="q-role">Cadena hotelera con presencia en 8 estados de México</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="nl-inner">
+        <div class="nl-text">
+          <h2 class="sec-title">¡Entérate primero!</h2>
+          <p class="sec-sub">Nuevas colecciones, productos y descuentos exclusivos en tu correo.</p>
+        </div>
+        <div class="nl-form">
+          <input class="nl-input" type="email" placeholder="tu@hotel.com">
+          <button class="nl-btn">Suscribirme</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /section-inicio -->
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: CATEGORÍAS
+════════════════════════════════════════ -->
+<div id="section-categorias" class="page-section">
+  <section class="categories" style="border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="sec-lbl">Catálogo completo</div>
+      <h2 class="sec-title">Categorías de productos</h2>
+      <p class="sec-sub">Todo lo que tu hotel, restaurante o spa necesita, organizado por categoría.</p>
+      <div class="cats-grid">
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#EAF4FF,#C5DEFF)">🛏️</div>
+          <div class="cat-body">
+            <div class="cat-title">Blancos</div>
+            <div class="cat-count">Toallas · Sábanas · Almohadas · Duvets</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Toallas de baño</span>
+              <span class="cat-sub-tag">Batas de baño</span>
+              <span class="cat-sub-tag">Cobertores</span>
+              <span class="cat-sub-tag">Duvets</span>
+              <span class="cat-sub-tag">Almohadas</span>
+              <span class="cat-sub-tag">Sábanas</span>
+              <span class="cat-sub-tag">Pantuflas</span>
+              <span class="cat-sub-tag">Protector de colchón</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#FFF0EA,#FFD8C5)">🛋️</div>
+          <div class="cat-body">
+            <div class="cat-title">Accesorios de habitación</div>
+            <div class="cat-count">Todo para equipar la habitación</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Espejos</span>
+              <span class="cat-sub-tag">Ganchos</span>
+              <span class="cat-sub-tag">Porta equipaje</span>
+              <span class="cat-sub-tag">Básculas</span>
+              <span class="cat-sub-tag">Hieleras</span>
+              <span class="cat-sub-tag">Cajas fuertes</span>
+              <span class="cat-sub-tag">Tablas de planchar</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#F0FFF4,#C6F0D6)">🚿</div>
+          <div class="cat-body">
+            <div class="cat-title">Baño y accesorios</div>
+            <div class="cat-count">Equipamiento completo de baño</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Dispensadores de jabón</span>
+              <span class="cat-sub-tag">Tapetes de baño</span>
+              <span class="cat-sub-tag">Cambia pañales</span>
+              <span class="cat-sub-tag">Accesorios</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#FDF3FF,#E8C5FF)">🧴</div>
+          <div class="cat-body">
+            <div class="cat-title">Amenidades y cuidado personal</div>
+            <div class="cat-count">Shampoos · Jabones · Cremas · Más</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Jabón líquido</span>
+              <span class="cat-sub-tag">Shampoo</span>
+              <span class="cat-sub-tag">Crema humectante</span>
+              <span class="cat-sub-tag">Acondicionador</span>
+              <span class="cat-sub-tag">Baño de burbujas</span>
+              <span class="cat-sub-tag">Cuidado bucal</span>
+              <span class="cat-sub-tag">Antibacteriales</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#FFFBEA,#FFE8A0)">📺</div>
+          <div class="cat-body">
+            <div class="cat-title">Electrónicos y electrodomésticos</div>
+            <div class="cat-count">Para habitación y cocina</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Secadoras de cabello</span>
+              <span class="cat-sub-tag">Planchas</span>
+              <span class="cat-sub-tag">Cafeteras</span>
+              <span class="cat-sub-tag">Microondas</span>
+              <span class="cat-sub-tag">Refrigeradores</span>
+              <span class="cat-sub-tag">Televisiones</span>
+              <span class="cat-sub-tag">Licuadoras</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#F0F4FF,#C5CEFF)">🧹</div>
+          <div class="cat-body">
+            <div class="cat-title">Mantenimiento y limpieza</div>
+            <div class="cat-count">Carros, contenedores y más</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Carros de limpieza</span>
+              <span class="cat-sub-tag">Carros de servicio</span>
+              <span class="cat-sub-tag">Contenedores de basura</span>
+              <span class="cat-sub-tag">Dispensadores de jabón</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#FFF5F0,#FFD0B5)">🍳</div>
+          <div class="cat-body">
+            <div class="cat-title">Preparación de alimentos</div>
+            <div class="cat-count">Equipo profesional de cocina</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Freidoras</span>
+              <span class="cat-sub-tag">Batidoras</span>
+              <span class="cat-sub-tag">Hornos</span>
+              <span class="cat-sub-tag">Rebanadoras</span>
+              <span class="cat-sub-tag">Arroceras</span>
+              <span class="cat-sub-tag">Cristalería</span>
+              <span class="cat-sub-tag">Utensilios</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#F5F0FF,#D5C5FF)">🪑</div>
+          <div class="cat-body">
+            <div class="cat-title">Muebles</div>
+            <div class="cat-count">Equipamiento de espacios</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Escritorios y mesas</span>
+              <span class="cat-sub-tag">Sillas</span>
+              <span class="cat-sub-tag">Cunas</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-img" style="background:linear-gradient(135deg,#FFF0F8,#FFB5DF)">💆</div>
+          <div class="cat-body">
+            <div class="cat-title">Spa</div>
+            <div class="cat-count">Experiencias de bienestar</div>
+            <div class="cat-subs">
+              <span class="cat-sub-tag">Sales de tina</span>
+              <span class="cat-sub-tag">Bombas de baño</span>
+              <span class="cat-sub-tag">Tinas</span>
+            </div>
+            <div class="cat-arrow">Ver productos →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TODOS LOS PRODUCTOS -->
+  <section class="products">
+    <div class="container">
+      <div class="products-hd">
+        <div>
+          <div class="sec-lbl">Bestsellers</div>
+          <h2 class="sec-title">Productos más vendidos</h2>
+        </div>
+        <div class="prod-tabs">
+          <button class="prod-tab active" onclick="filterProds(this,'all')">Todos</button>
+          <button class="prod-tab" onclick="filterProds(this,'amenidades')">Amenidades</button>
+          <button class="prod-tab" onclick="filterProds(this,'blancos')">Blancos</button>
+          <button class="prod-tab" onclick="filterProds(this,'electronicos')">Electrónicos</button>
+        </div>
+      </div>
+      <div class="prods-grid" id="allProducts"></div>
+    </div>
+  </section>
+</div><!-- /section-categorias -->
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: PROMOCIONES
+════════════════════════════════════════ -->
+<div id="section-promociones" class="page-section">
+  <div class="promo-hero">
+    <div class="container promo-hero-inner">
+      <div class="ph-chip">🔥 Ofertas activas</div>
+      <h1 class="ph-title">Promociones y<br>descuentos especiales</h1>
+      <p class="ph-sub">Productos seleccionados con descuentos de hasta 20% para hoteles y empresas hoteleras.</p>
+      <div class="promo-stats">
+        <div class="ps"><div class="ps-val">20%</div><div class="ps-lbl">Descuento máximo</div></div>
+        <div class="ps"><div class="ps-val">10+</div><div class="ps-lbl">Productos en oferta</div></div>
+        <div class="ps"><div class="ps-val">Gratis</div><div class="ps-lbl">Envío incluido</div></div>
+      </div>
+    </div>
+  </div>
+  <section style="padding:60px 0;background:var(--bg)">
+    <div class="container">
+      <div class="promo-grid" id="promoProducts"></div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: NUESTRAS MARCAS
+════════════════════════════════════════ -->
+<div id="section-marcas" class="page-section">
+  <section class="brands" style="border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="sec-lbl">Partners estratégicos</div>
+      <h2 class="sec-title">Nuestras marcas</h2>
+      <p class="sec-sub">Trabajamos con las mejores marcas especializadas en hotelería, seleccionadas por su calidad, innovación y compromiso con la sustentabilidad.</p>
+      <div class="brands-grid">
+        <div class="brand-card">
+          <div class="brand-icon">🏨</div>
+          <div class="brand-name">Hospex</div>
+          <p class="brand-desc">Primera marca especializada en hotelería. Calidad alineada con los estándares más exigentes del sector.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🛁</div>
+          <div class="brand-name">La Josefina</div>
+          <p class="brand-desc">La marca de toallas más grande de México. La elección preferida por hoteles gracias a su relación calidad-precio.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">💇</div>
+          <div class="brand-name">Conair</div>
+          <p class="brand-desc">Líder en cuidado personal. Secadoras, planchas y equipos de bienestar con innovación y durabilidad comprobada.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🌱</div>
+          <div class="brand-name">Biotabs</div>
+          <p class="brand-desc">Pionera eco-friendly. Productos de cuidado personal en formato tableta para eliminar el plástico de un solo uso.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🌿</div>
+          <div class="brand-name">Natuá Orgánia</div>
+          <p class="brand-desc">Fórmulas orgánicas con manzanilla y mandarina. Comprometida con la sustentabilidad y los ingredientes naturales.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">☕</div>
+          <div class="brand-name">Hamilton Beach</div>
+          <p class="brand-desc">Reconocida globalmente por innovación. Equipos para hoteles, restaurantes y bares con altos estándares de calidad.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🪑</div>
+          <div class="brand-name">Resol</div>
+          <p class="brand-desc">Soluciones de mobiliario elegante y moderno que combinan diseño contemporáneo con durabilidad excepcional.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🛏️</div>
+          <div class="brand-name">Pure Balance</div>
+          <p class="brand-desc">Especialista en blancos hoteleros. Diseño de precisión para el confort y la experiencia de lujo del huésped.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🌾</div>
+          <div class="brand-name">Bionature</div>
+          <p class="brand-desc">Extractos herbales que crean experiencias relajantes, respetando el equilibrio natural del cuerpo.</p>
+        </div>
+        <div class="brand-card">
+          <div class="brand-icon">🔌</div>
+          <div class="brand-name">Proctor Silex</div>
+          <p class="brand-desc">Electrodomésticos de cocina enfocados en simplicidad, eficiencia y rendimiento constante en entornos hoteleros.</p>
+        </div>
+      </div>
+      <div style="margin-top:32px;padding:20px 24px;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-lg);font-size:13.5px;color:var(--text-3)">
+        <strong style="color:var(--text-2)">Otras marcas disponibles:</strong> Coeur de Fleur · Mint Boost · Quadrata BC · Citrus · Sablon · Luum · Collezione · Trust · Alo! · Piu Naturale
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: DISPENSADORES
+════════════════════════════════════════ -->
+<div id="section-dispensadores" class="page-section">
+  <section class="dispensers" style="border-top:none">
+    <div class="container">
+      <div class="sec-lbl">Programa exclusivo</div>
+      <h2 class="sec-title">Dispensadores en comodato</h2>
+      <p class="sec-sub">Hoteles con 150+ habitaciones reciben dispensadores de forma gratuita. Reduce plástico hasta 60% y optimiza costos operativos.</p>
+      <div class="disp-grid">
+        <div class="disp-features">
+          <div class="disp-feat">
+            <div class="disp-feat-icon">🎁</div>
+            <div>
+              <div class="disp-feat-title">Sin costo para tu hotel</div>
+              <p class="disp-feat-desc">Te proporcionamos todos los dispensadores que requieras, sin inversión inicial para hoteles con más de 150 habitaciones.</p>
+            </div>
+          </div>
+          <div class="disp-feat">
+            <div class="disp-feat-icon">♻️</div>
+            <div>
+              <div class="disp-feat-title">Reduce plástico hasta 60%</div>
+              <p class="disp-feat-desc">Equivalente a eliminar aproximadamente 17,000 botellas de un litro por tonelada. Compromiso real con el medio ambiente.</p>
+            </div>
+          </div>
+          <div class="disp-feat">
+            <div class="disp-feat-icon">🔒</div>
+            <div>
+              <div class="disp-feat-title">Sistema anti-contaminación</div>
+              <p class="disp-feat-desc">Dispensadores con llave incluida para prevenir contaminación y robo. Soporte de pared invisible con kit de instalación.</p>
+            </div>
+          </div>
+          <div class="disp-feat">
+            <div class="disp-feat-icon">📦</div>
+            <div>
+              <div class="disp-feat-title">Recargas mensuales</div>
+              <p class="disp-feat-desc">Bolsas pouch de 5 litros entregadas mensualmente según análisis de consumo de tu propiedad.</p>
+            </div>
+          </div>
+          <div class="disp-lines">
+            <div class="disp-line">
+              <div class="dl-title">Línea Lu'um Boox</div>
+              <div class="dl-sub">Soporte bracket + bolsas pouch</div>
+            </div>
+            <div class="disp-line">
+              <div class="dl-title">Línea Natuá Orgánia</div>
+              <div class="dl-sub">Soporte bracket + bolsas pouch</div>
+            </div>
+          </div>
+          <div class="disp-cta">
+            <a class="btn-white" href="https://wa.me/529981066891" target="_blank">💬 Solicitar por WhatsApp</a>
+            <a class="btn-outline-white" href="mailto:ayuda@amenidades.com">Más información</a>
+          </div>
+        </div>
+        <div class="disp-steps">
+          <div class="disp-steps-title">Cómo funciona</div>
+          <div class="disp-step">
+            <div class="step-n">1</div>
+            <div class="step-txt">
+              <strong>Instalación del soporte</strong>
+              <span>Bracket de pared invisible incluido con kit de instalación. Rápido y sin dañar la pared.</span>
+            </div>
+          </div>
+          <div class="disp-step">
+            <div class="step-n">2</div>
+            <div class="step-txt">
+              <strong>Carga de la bolsa pouch</strong>
+              <span>Recambio fácil de la bolsa de 5 litros. Sistema de llave para evitar robo y adulteración.</span>
+            </div>
+          </div>
+          <div class="disp-step">
+            <div class="step-n">3</div>
+            <div class="step-txt">
+              <strong>Uso eficiente</strong>
+              <span>Dosificación controlada que reduce el desperdicio hasta un 30% versus botellas individuales.</span>
+            </div>
+          </div>
+          <div class="disp-step">
+            <div class="step-n">4</div>
+            <div class="step-txt">
+              <strong>Reabastecimiento automático</strong>
+              <span>Analizamos tu consumo mensual y coordinamos la entrega antes de que te quedes sin producto.</span>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,.08);border-radius:var(--r-md);font-size:13px;color:rgba(255,255,255,.6)">
+            <strong style="color:#fff;display:block;margin-bottom:6px">Requisitos</strong>
+            Hotel o propiedad con mínimo 150 habitaciones · Contrato de suministro mensual · Instalación autorizada por tu equipo de mantenimiento
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: QUIÉNES SOMOS
+════════════════════════════════════════ -->
+<div id="section-nosotros" class="page-section">
+  <section class="about" style="border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="sec-lbl">Nuestra historia</div>
+      <h2 class="sec-title">¿Quiénes somos?</h2>
+      <p class="sec-sub">Somos más que una plataforma de compras — somos la solución integral para la industria hotelera de México.</p>
+      <div class="about-grid">
+        <div class="about-blocks">
+          <div class="about-block">
+            <div class="ab-icon">🏢</div>
+            <div class="ab-title">Nuestra empresa</div>
+            <p class="ab-desc">Amenidades.com es operada por <strong>AMENIDADES DE JALISCO S.C. DE R.L. DE C.V.</strong>, con sede en Zapopan, Jalisco, México. Parte del grupo Amenijal, que desde <strong>1997</strong> ha servido a la industria hotelera diseñando y creando amenidades alineadas con las expectativas de viajeros internacionales.</p>
+          </div>
+          <div class="about-block">
+            <div class="ab-icon">🎯</div>
+            <div class="ab-title">Nuestra misión</div>
+            <p class="ab-desc">Surgimos para cubrir un vacío específico del mercado: ofrecer una plataforma de compras mayorista para la hotelería que fuera <strong>rápida, segura, eficiente y confiable</strong>. Todo en un solo lugar, con entrega garantizada a todo México.</p>
+          </div>
+          <div class="about-block">
+            <div class="ab-icon">🌱</div>
+            <div class="ab-title">Compromiso ambiental</div>
+            <p class="ab-desc">Demostramos nuestro compromiso con la excelencia y la responsabilidad medioambiental mediante certificaciones ISO y GMP, además de nuestro programa de dispensadores que reduce el plástico de un solo uso hasta un <strong>60%</strong>.</p>
+          </div>
+        </div>
+        <div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="as-val">1997</div>
+              <div class="as-lbl">Año de fundación del grupo Amenijal</div>
+            </div>
+            <div class="about-stat">
+              <div class="as-val">10+</div>
+              <div class="as-lbl">Marcas exclusivas en catálogo</div>
+            </div>
+            <div class="about-stat">
+              <div class="as-val">48h</div>
+              <div class="as-lbl">Tiempo de entrega en productos en stock</div>
+            </div>
+            <div class="about-stat">
+              <div class="as-val">100%</div>
+              <div class="as-lbl">Cobertura nacional de envíos</div>
+            </div>
+          </div>
+          <div class="about-certs">
+            <span class="cert-badge">ISO</span>
+            <span class="cert-badge">GMP</span>
+            <span class="cert-badge">OPENPAY SECURE</span>
+          </div>
+          <div class="clients-row">
+            <div class="cr-title">Hoteles que confían en nosotros</div>
+            <div class="clients-logos">
+              <span class="cl-logo">Best Western</span>
+              <span class="cl-logo">Hyatt</span>
+              <span class="cl-logo">Marriott</span>
+              <span class="cl-logo">Crowne Plaza</span>
+            </div>
+          </div>
+          <div style="margin-top:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px">Contacto directo</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <a href="tel:+523336931498" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-1);font-size:14px;font-weight:500"><span style="font-size:18px">📞</span>+52 (33) 3693-1498</a>
+              <a href="https://wa.me/523341702184" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-1);font-size:14px;font-weight:500"><span style="font-size:18px">💬</span>WhatsApp: +52 334 170 2184</a>
+              <a href="mailto:ayuda@amenidades.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-1);font-size:14px;font-weight:500"><span style="font-size:18px">✉️</span>ayuda@amenidades.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section class="sys-val">
+    <div class="container">
+      <div class="sec-lbl">¿Por qué elegirnos?</div>
+      <h2 class="sec-title">amenidades.com vs. la competencia</h2>
+      <div class="compare-grid">
+        <div class="cmp-col theirs">
+          <div class="cmp-head">Proveedores tradicionales</div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Catálogo limitado, varios proveedores</span></div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Sin precios en línea, cotización manual</span></div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Tiempos de entrega inciertos</span></div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Sin programa de dispensadores</span></div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Sin certificaciones ambientales</span></div>
+          <div class="feat"><span class="ficon">✗</span><span class="ftxt">Pago limitado a transferencia o cheque</span></div>
+        </div>
+        <div class="cmp-col ours">
+          <div class="cmp-head">amenidades.com</div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Todo en un solo lugar, 9 categorías</span></div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Precios mayoristas en tiempo real</span></div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Entrega garantizada en 48 horas</span></div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Dispensadores gratis para 150+ hab.</span></div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Certificado ISO · GMP · Eco-friendly</span></div>
+          <div class="feat"><span class="ficon">✓</span><span class="ftxt on">Tarjeta, SPEI, tiendas de conveniencia</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="sec-lbl">Preguntas frecuentes</div>
+      <h2 class="sec-title">Todo lo que necesitas saber</h2>
+      <div class="faq-grid">
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cómo hago un pedido? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Navega por las categorías, elige los productos y agrégalos al carrito. Cuando estés listo, da clic en "Finalizar compra" y sigue los pasos. Es rápido y seguro.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Qué métodos de pago aceptan? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Aceptamos tarjetas de crédito y débito, transferencias bancarias (SPEI) y pagos en efectivo en 7-Eleven, Walmart, Farmacias Benavides y Farmacias del Ahorro.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Hacen envíos a todo México? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí, hacemos envíos a toda la República Mexicana con envío gratis (aplican restricciones para zonas remotas). Los tiempos varían según ubicación y método de envío.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda la entrega? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Para productos en stock, la entrega es de 48 horas. Para pedidos personalizados, los tiempos varían. Recibirás un número de rastreo por correo electrónico.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Puedo devolver o cambiar productos? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Tienes 48 horas desde la recepción para solicitar devolución o cambio, siempre que el producto esté en su condición original. El reembolso se procesa por el mismo método de pago.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cómo rastro mi pedido? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Recibirás un correo con tu número de rastreo. Haz clic en el enlace para ver el estado de tu envío en tiempo real.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Hay descuentos por volumen? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí, contamos con precios por volumen. A mayor cantidad de cajas, mayor descuento. Suscríbete a nuestro newsletter para conocer promociones exclusivas.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Necesito cuenta para comprar? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Recomendamos crear una cuenta para acceso más rápido, historial de pedidos y ofertas exclusivas. También puedes comprar como invitado.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Tienen productos personalizados? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Sí, tenemos opciones de personalización para ciertos productos. Contáctanos por WhatsApp o correo para conocer las opciones disponibles.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">¿Cómo funciona el programa de dispensadores? <span class="faq-arrow">▼</span></div>
+            <div class="faq-a">Hoteles con 150+ habitaciones reciben dispensadores en comodato (sin costo). Solo contratas el suministro mensual de recargas de 5 litros. Reduce plástico hasta 60%.</div>
+          </div>
+        </div>
+        <div class="faq-contact-box">
+          <div class="fcb-title">¿Tienes más preguntas?</div>
+          <p class="fcb-sub">Nuestro equipo especializado en hotelería está disponible para ayudarte con cualquier duda sobre productos, pedidos o el programa de dispensadores.</p>
+          <div class="contact-options">
+            <a class="contact-opt" href="https://wa.me/523341702184" target="_blank">
+              <span class="co-icon">💬</span>
+              <div><div class="co-label">WhatsApp</div><div class="co-val">+52 334 170 2184</div></div>
+            </a>
+            <a class="contact-opt" href="https://wa.me/529981066891" target="_blank">
+              <span class="co-icon">💬</span>
+              <div><div class="co-label">WhatsApp Dispensadores</div><div class="co-val">+52 998 106 6891</div></div>
+            </a>
+            <a class="contact-opt" href="tel:+523336931498">
+              <span class="co-icon">📞</span>
+              <div><div class="co-label">Teléfono</div><div class="co-val">+52 (33) 3693-1498</div></div>
+            </a>
+            <a class="contact-opt" href="mailto:ayuda@amenidades.com">
+              <span class="co-icon">✉️</span>
+              <div><div class="co-label">Correo electrónico</div><div class="co-val">ayuda@amenidades.com</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /section-nosotros -->
+
+
+<!-- ════════════════════════════════════════
+     PÁGINA: FORMAS DE PAGO
+════════════════════════════════════════ -->
+<div id="section-pagos" class="page-section">
+  <section class="payments" style="border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="sec-lbl">Pagos seguros</div>
+      <h2 class="sec-title">Formas de pago y ayuda</h2>
+      <p class="sec-sub">Todos nuestros métodos de pago están diseñados para proteger tus transacciones. Procesamos con Openpay, nunca almacenamos datos sensibles.</p>
+      <div class="pay-grid">
+        <div class="pay-card">
+          <div class="pay-icon">🏦</div>
+          <div class="pay-title">Transferencia SPEI</div>
+          <p class="pay-desc">Realiza transferencias electrónicas desde cualquier banco de México. Regulado por BANXICO, seguro y disponible las 24 horas.</p>
+          <div class="pay-badges">
+            <span class="pay-badge">SPEI</span>
+            <span class="pay-badge">Todos los bancos</span>
+            <span class="pay-badge">BANXICO</span>
+          </div>
+        </div>
+        <div class="pay-card">
+          <div class="pay-icon">🏪</div>
+          <div class="pay-title">Depósito en tiendas</div>
+          <p class="pay-desc">Paga en efectivo en las principales tiendas de conveniencia y farmacias de todo México. Sin necesidad de cuenta bancaria.</p>
+          <div class="pay-badges">
+            <span class="pay-badge">7-Eleven</span>
+            <span class="pay-badge">Walmart</span>
+            <span class="pay-badge">Benavides</span>
+            <span class="pay-badge">Del Ahorro</span>
+          </div>
+        </div>
+        <div class="pay-card">
+          <div class="pay-icon">💳</div>
+          <div class="pay-title">Tarjeta de crédito o débito</div>
+          <p class="pay-desc">Aceptamos todas las tarjetas de crédito y débito. Las transacciones son protegidas a través de la plataforma Openpay con encriptación SSL.</p>
+          <div class="pay-badges">
+            <span class="pay-badge">Visa</span>
+            <span class="pay-badge">Mastercard</span>
+            <span class="pay-badge">American Express</span>
+            <span class="pay-badge">Openpay</span>
+          </div>
+        </div>
+      </div>
+      <div class="security-note">
+        <span class="sn-icon">🔒</span>
+        <div>
+          <div class="sn-title">Tu seguridad es nuestra prioridad</div>
+          <p class="sn-desc">Todas las transacciones son procesadas con encriptación SSL. Nunca almacenamos datos sensibles de tarjetas. En tus confirmaciones de pedido solo verás los últimos 4 dígitos. Powered by <strong>Openpay</strong>.</p>
+        </div>
+      </div>
+
+      <!-- REEMBOLSOS -->
+      <div style="margin-top:60px">
+        <div class="sec-lbl">Política de reembolsos</div>
+        <h3 class="sec-title" style="font-size:28px">Tiempos de reembolso</h3>
+        <div style="margin-top:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+          <table style="width:100%;border-collapse:collapse;font-size:14px">
+            <thead>
+              <tr style="background:var(--surface-2)">
+                <th style="padding:14px 20px;text-align:left;font-weight:700;color:var(--text-1);border-bottom:1px solid var(--border)">Método de pago</th>
+                <th style="padding:14px 20px;text-align:left;font-weight:700;color:var(--text-1);border-bottom:1px solid var(--border)">Método de reembolso</th>
+                <th style="padding:14px 20px;text-align:left;font-weight:700;color:var(--text-1);border-bottom:1px solid var(--border)">Tiempo estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border-light)"><td style="padding:13px 20px;color:var(--text-2)">Tarjeta de crédito/débito</td><td style="padding:13px 20px;color:var(--text-2)">Misma tarjeta</td><td style="padding:13px 20px;font-weight:600;color:var(--text-1)">Hasta 15 días hábiles</td></tr>
+              <tr style="border-bottom:1px solid var(--border-light)"><td style="padding:13px 20px;color:var(--text-2)">Tarjeta de crédito/débito</td><td style="padding:13px 20px;color:var(--text-2)">Saldo amenidades.com</td><td style="padding:13px 20px;font-weight:600;color:var(--green)">Hasta 2 días hábiles</td></tr>
+              <tr style="border-bottom:1px solid var(--border-light)"><td style="padding:13px 20px;color:var(--text-2)">Tarjeta regalo amenidades.com</td><td style="padding:13px 20px;color:var(--text-2)">Saldo amenidades.com</td><td style="padding:13px 20px;font-weight:600;color:var(--green)">Hasta 2 días hábiles</td></tr>
+              <tr><td style="padding:13px 20px;color:var(--text-2)">Pago mixto</td><td style="padding:13px 20px;color:var(--text-2)">Según método original</td><td style="padding:13px 20px;font-weight:600;color:var(--text-1)">15 días (tarjeta) / 3–5 días (saldo)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:var(--text-3)">Los reembolsos a tarjeta pueden demorar hasta 2 ciclos de facturación en aparecer en tu estado de cuenta. Si no recibes tu reembolso en el tiempo indicado, contáctanos a <a href="mailto:ayuda@amenidades.com" style="color:var(--accent)">ayuda@amenidades.com</a>.</p>
+      </div>
+    </div>
+  </section>
+</div><!-- /section-pagos -->
+
+<!-- ════════════════════════════════════════
+     FOOTER (siempre visible)
+════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="ft-logo">amenidades</div>
-        <p class="ft-desc">El sistema mayorista de abastecimiento hotelero #1 de México. Más de 3,200 hoteles confían en nuestra plataforma para su operación diaria.</p>
-        <div class="ft-certs"><span class="cert">ISO 9001</span><span class="cert">GMP</span></div>
+        <div class="ft-logo">amenidades.com</div>
+        <p class="ft-desc">La tienda mayorista para hoteles #1 de México. Parte del Grupo Amenijal, sirviendo a la industria hotelera desde 1997 con excelencia y responsabilidad ambiental.</p>
+        <div class="ft-certs">
+          <span class="cert">ISO</span>
+          <span class="cert">GMP</span>
+          <span class="cert">OPENPAY</span>
+        </div>
+        <div class="ft-social" style="margin-top:16px">
+          <a class="social-btn" href="https://www.facebook.com/amenidadescom/" target="_blank">f</a>
+          <a class="social-btn" href="https://www.instagram.com/amenidades_com/" target="_blank">ig</a>
+          <a class="social-btn" href="https://wa.me/523336931498" target="_blank">wa</a>
+        </div>
       </div>
       <div>
-        <div class="ft-col-title">Catálogo</div>
+        <div class="ft-col-title">Amenidades</div>
         <ul class="ft-links">
-          <li><a href="#">Amenidades de Baño</a></li>
-          <li><a href="#">Blancos &amp; Lencería</a></li>
-          <li><a href="#">Spa &amp; Bienestar</a></li>
-          <li><a href="#">Electrónicos</a></li>
-          <li><a href="#">Mantenimiento</a></li>
-          <li><a href="#">Ver todo el catálogo</a></li>
+          <li><a href="#" onclick="showSection('inicio')">Inicio</a></li>
+          <li><a href="#" onclick="showSection('nosotros')">¿Quiénes Somos?</a></li>
+          <li><a href="#" onclick="showSection('dispensadores')">Dispensadores</a></li>
+          <li><a href="#" onclick="showSection('marcas')">Nuestras Marcas</a></li>
         </ul>
       </div>
       <div>
-        <div class="ft-col-title">Empresa</div>
+        <div class="ft-col-title">Productos</div>
         <ul class="ft-links">
-          <li><a href="#">Quiénes somos</a></li>
-          <li><a href="#">Marcas exclusivas</a></li>
-          <li><a href="#">Crédito empresarial</a></li>
-          <li><a href="#">Blog hotelero</a></li>
-          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#" onclick="showSection('categorias')">Categorías</a></li>
+          <li><a href="#" onclick="showSection('promociones')">Promociones</a></li>
+          <li><a href="#" onclick="showSection('pagos')">Formas de Pago</a></li>
+          <li><a href="mailto:ayuda@amenidades.com">Soporte</a></li>
         </ul>
       </div>
       <div>
-        <div class="ft-col-title">Soporte</div>
+        <div class="ft-col-title">Legal y ayuda</div>
         <ul class="ft-links">
-          <li><a href="#">WhatsApp directo</a></li>
-          <li><a href="#">33 3693 1498</a></li>
-          <li><a href="#">ayuda@amenidades.com</a></li>
-          <li><a href="#">Devoluciones</a></li>
-          <li><a href="#">Términos y privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+          <li><a href="#">Garantías de fabricantes</a></li>
+          <li><a href="#">Acerca de reembolsos</a></li>
+          <li><a href="#">Políticas de devolución</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
         </ul>
+        <div style="margin-top:20px;font-size:12.5px">
+          <div style="color:rgba(255,255,255,.4);margin-bottom:6px">Contacto directo</div>
+          <a href="tel:+523336931498" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;margin-bottom:4px;font-size:13px">+52 (33) 3693-1498</a>
+          <a href="mailto:ayuda@amenidades.com" style="display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px">ayuda@amenidades.com</a>
+        </div>
       </div>
     </div>
     <div class="ft-bottom">
-      <span>© 2026 amenidades.com — Todos los derechos reservados</span>
-      <span>Hecho en México 🇲🇽</span>
+      <span>Copyright© 2026 amenidades.com · AMENIDADES DE JALISCO S.C. DE R.L. DE C.V. · Zapopan, Jalisco, México</span>
+      <div class="ft-legal">
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-// ─── DATA ───────────────────────────────────────────────
+// ── NAVEGACIÓN ──────────────────────────────
+function showSection(id) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  const sec = document.getElementById('section-' + id);
+  if (sec) { sec.classList.add('active'); window.scrollTo(0,0); }
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+}
+
+// ── DATOS DE PRODUCTOS ──────────────────────
 const products = [
-  { id:1, name:'Shampoo Natuá Organia', pack:'25 ml · 440 piezas / caja', brand:'Natuá Organia', stock:38, level:'hi', emoji:'🧴', bg:'linear-gradient(135deg,#E8F0EC,#C5DDD0)',
-    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:2564},{l:'5 – 9 cajas',min:5,max:9,p:2380},{l:'10 – 24 cajas',min:10,max:24,p:2179},{l:'25+ cajas',min:25,max:9999,p:1980}]},
-  { id:2, name:'Acondicionador Mint Boost', pack:'25 ml · 440 piezas / caja', brand:'Mint Boost', stock:12, level:'hi', emoji:'💚', bg:'linear-gradient(135deg,#E8F5EE,#C0DCC8)',
-    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:2340},{l:'5 – 9 cajas',min:5,max:9,p:2150},{l:'10 – 24 cajas',min:10,max:24,p:1980},{l:'25+ cajas',min:25,max:9999,p:1810}]},
-  { id:3, name:'Jabón Bionature Premium', pack:'20 g · 500 piezas / caja', brand:'Bionature', stock:3, level:'lo', emoji:'🧼', bg:'linear-gradient(135deg,#FDF3E8,#EED8B8)',
-    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:1840},{l:'5 – 9 cajas',min:5,max:9,p:1680},{l:'10 – 24 cajas',min:10,max:24,p:1520},{l:'25+ cajas',min:25,max:9999,p:1380}]},
-  { id:4, name:'Crema Corporal Luum', pack:'30 ml · 240 piezas / caja', brand:'Luum', stock:22, level:'hi', emoji:'🏺', bg:'linear-gradient(135deg,#F5EEF5,#E0D0E0)',
-    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:3120},{l:'5 – 9 cajas',min:5,max:9,p:2890},{l:'10 – 24 cajas',min:10,max:24,p:2650},{l:'25+ cajas',min:25,max:9999,p:2420}]},
-  { id:5, name:'Toallas de Baño Blancas', pack:'500 g · 12 unidades / caja', brand:'Blancos Premium', stock:67, level:'hi', emoji:'🛁', bg:'linear-gradient(135deg,#EEF2FB,#D5DFEE)',
-    tiers:[{l:'1 – 9 cajas',min:1,max:9,p:1840},{l:'10 – 24 cajas',min:10,max:24,p:1650},{l:'25 – 49 cajas',min:25,max:49,p:1520},{l:'50+ cajas',min:50,max:9999,p:1380}]},
-  { id:6, name:'Kit Amenidades Completo', pack:'Shampoo + Acond. + Jabón · 200 kits / caja', brand:'Natuá Organia', stock:18, level:'hi', emoji:'🎁', bg:'linear-gradient(135deg,#E8F0EC,#D0E4D8)',
-    tiers:[{l:'1 – 4 cajas',min:1,max:4,p:4800},{l:'5 – 9 cajas',min:5,max:9,p:4380},{l:'10 – 24 cajas',min:10,max:24,p:3980},{l:'25+ cajas',min:25,max:9999,p:3600}]},
+  { id:1, name:'Shampoo 25 ml Natuá Orgánia', brand:'Natuá Orgánia', pack:'440 piezas/caja · 15 cajas', emoji:'🧴', bg:'linear-gradient(135deg,#E8F0EC,#C5DDD0)', tier1:'$2,564.01', tier2:'$2,179.41', disc:'15%', stock:'hi', stockTxt:'15 cajas', cajas:15, price1:2564.01, price2:2179.41, tag:'amenidades' },
+  { id:2, name:'Jabón rectangular 20 g Natuá Orgánia', brand:'Natuá Orgánia', pack:'500 piezas/caja · 34 cajas', emoji:'🧼', bg:'linear-gradient(135deg,#FDF3FF,#E8C5FF)', tier1:'$1,746.82', tier2:'$1,484.80', disc:'15%', stock:'hi', stockTxt:'34 cajas', cajas:34, price1:1746.82, price2:1484.80, tag:'amenidades' },
+  { id:3, name:'Shampoo acondicionador 25 ml Piu Naturale', brand:'Piu Naturale', pack:'440 piezas/caja · 43 cajas', emoji:'🫧', bg:'linear-gradient(135deg,#FFF5F0,#FFD0B5)', tier1:'$2,389.87', tier2:'$2,031.39', disc:'15%', stock:'hi', stockTxt:'43 cajas', cajas:43, price1:2389.87, price2:2031.39, tag:'amenidades' },
+  { id:4, name:'Jabón cóncavo 30 g Natuá Orgánia', brand:'Natuá Orgánia', pack:'350 piezas/caja · 97 cajas', emoji:'🧼', bg:'linear-gradient(135deg,#F0FFF4,#C6F0D6)', tier1:'$1,786.40', tier2:'$1,518.44', disc:'15%', stock:'hi', stockTxt:'97 cajas', cajas:97, price1:1786.40, price2:1518.44, tag:'amenidades' },
+  { id:5, name:'Shampoo 40 ml Bionature', brand:'Bionature', pack:'210 piezas/caja · 242 cajas', emoji:'🧴', bg:'linear-gradient(135deg,#FFFBEA,#FFE8A0)', tier1:'$1,309.71', tier2:'$1,113.25', disc:'15%', stock:'hi', stockTxt:'242 cajas', cajas:242, price1:1309.71, price2:1113.25, tag:'amenidades' },
+  { id:6, name:'Toalla de baño Blanca #3 Hotelera 130x70cm La Josefina', brand:'La Josefina', pack:'6 piezas/caja · 7 cajas', emoji:'🛁', bg:'linear-gradient(135deg,#EAF4FF,#C5DEFF)', tier1:'$968.52', tier2:'$823.24', disc:'11%', stock:'lo', stockTxt:'7 cajas', cajas:7, price1:968.52, price2:823.24, tag:'blancos' },
+  { id:7, name:'Toalla de baño Blanca Spa 145x80cm La Josefina', brand:'La Josefina', pack:'6 piezas/caja · 6 cajas', emoji:'🛁', bg:'linear-gradient(135deg,#F0F4FF,#C5CEFF)', tier1:'$1,545.12', tier2:'$1,313.35', disc:'11%', stock:'lo', stockTxt:'6 cajas', cajas:6, price1:1545.12, price2:1313.35, tag:'blancos' },
+  { id:8, name:'Inserto de duvet Queen size 235x240cm Pure Balance', brand:'Pure Balance', pack:'1 pieza/caja · 14 cajas', emoji:'🛏️', bg:'linear-gradient(135deg,#FFF0F8,#FFB5DF)', tier1:'$1,522.66', tier2:'$1,294.26', disc:'15%', stock:'hi', stockTxt:'14 cajas', cajas:14, price1:1522.66, price2:1294.26, tag:'blancos' },
+  { id:9, name:'Cafetera 45 Tazas Hamilton Beach 40515R', brand:'Hamilton Beach', pack:'1 pieza/caja · 9 cajas', emoji:'☕', bg:'linear-gradient(135deg,#FFFBEA,#FFE8A0)', tier1:'$1,237.71', tier2:'$1,052.05', disc:'13%', stock:'hi', stockTxt:'9 cajas', cajas:9, price1:1237.71, price2:1052.05, tag:'electronicos' },
+  { id:10, name:'Vaporizador Turbo Extremesteam GS59ES Conair', brand:'Conair', pack:'1 pieza/caja · 1 caja', emoji:'👔', bg:'linear-gradient(135deg,#F5F0FF,#D5C5FF)', tier1:'$2,134.31', tier2:'$1,814.16', disc:'7%', stock:'lo', stockTxt:'1 caja', cajas:1, price1:2134.31, price2:1814.16, tag:'electronicos' },
+  { id:11, name:'Crema humectante 25 ml Natuá Orgánia', brand:'Natuá Orgánia', pack:'440 piezas/caja · 39 cajas', emoji:'🧴', bg:'linear-gradient(135deg,#FDF3E8,#F5D5A0)', tier1:'$2,594.03', tier2:'$2,204.93', disc:'15%', stock:'hi', stockTxt:'39 cajas', cajas:39, price1:2594.03, price2:2204.93, tag:'amenidades' },
+  { id:12, name:'Toalla tapete Blanca Pure Balance 50x70cm 300g', brand:'Pure Balance', pack:'6 piezas/caja · 6 cajas', emoji:'🛁', bg:'linear-gradient(135deg,#E8F0EC,#C5DDD0)', tier1:'$884.53', tier2:'$751.85', disc:'20%', stock:'lo', stockTxt:'6 cajas', cajas:6, price1:884.53, price2:751.85, tag:'blancos' },
 ];
 
-const qtys = {};
-products.forEach(p => qtys[p.id] = 1);
-let cartTotal = 0;
-
-// ─── HELPERS ────────────────────────────────────────────
-const fmt = n => '$' + n.toLocaleString('es-MX');
-function tierIdx(p, q) { return p.tiers.findIndex(t => q >= t.min && q <= t.max); }
-
-// ─── RENDER PRODUCTS ────────────────────────────────────
-function renderProds() {
-  document.getElementById('prods-grid').innerHTML = products.map(p => {
-    const q = qtys[p.id];
-    const ti = tierIdx(p, q);
-    const base = p.tiers[0].p;
-    const price = p.tiers[ti].p;
-    const total = price * q;
-    const save = (base - price) * q;
-    const tiersHTML = p.tiers.map((t, i) => {
-      const disc = i === 0 ? '' : `<span class="trow-disc">-${Math.round((1-t.p/base)*100)}%</span>`;
-      return `<div class="trow${i===ti?' act':''}" data-pid="${p.id}" data-ti="${i}">
-        <span class="trow-qty">${t.l}</span>
-        <span class="trow-price">${fmt(t.p)}</span>
-        ${disc || '<span></span>'}
-      </div>`;
-    }).join('');
-    const sBdg = p.level === 'lo'
-      ? `<div class="stock-bdg lo"><span class="spulse lo"></span>${p.stock} cajas — stock bajo</div>`
-      : `<div class="stock-bdg hi"><span class="spulse hi"></span>${p.stock} cajas</div>`;
-    return `
-    <div class="prod-card reveal">
-      <div class="prod-img" style="background:${p.bg}">
-        <div class="prod-badges"><span class="brand-bdg">${p.brand}</span>${sBdg}</div>
-        <span>${p.emoji}</span>
+function buildProductCard(p) {
+  return `
+  <div class="prod-card">
+    <div class="prod-img" style="background:${p.bg}">
+      ${p.emoji}
+      <div class="prod-badges">
+        <span class="brand-bdg">${p.brand}</span>
+        <span class="stock-bdg ${p.stock}">
+          <span class="spulse ${p.stock}"></span>${p.stock==='hi'?'En stock':'Últimas unidades'}
+        </span>
       </div>
-      <div class="prod-body">
-        <div class="prod-name">${p.name}</div>
-        <div class="prod-pack">${p.pack}</div>
-        <div class="pricing-tiers">${tiersHTML}</div>
-        <div class="prod-footer">
-          <div class="qty-total">
-            <div class="qty-side">
-              <div class="qlbl">Cantidad (cajas)</div>
-              <div class="qty-ctrl">
-                <button class="qbtn" onclick="chQty(${p.id},-1)">−</button>
-                <div class="qnum" id="q-${p.id}">${q}</div>
-                <button class="qbtn" onclick="chQty(${p.id},1)">+</button>
-              </div>
-            </div>
-            <div class="total-side">
-              <div class="tlbl">Total estimado</div>
-              <div class="tval" id="tv-${p.id}">${fmt(total)}</div>
-              <div class="tsave" id="ts-${p.id}">${save > 0 ? 'Ahorras '+fmt(save) : '&nbsp;'}</div>
+      ${p.disc ? `<span style="position:absolute;bottom:10px;right:10px" class="disc-bdg">−${p.disc}</span>` : ''}
+    </div>
+    <div class="prod-body">
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-pack">${p.pack}</div>
+      <div class="pricing-tiers">
+        <div class="trow"><span class="trow-qty">1 – ${Math.max(1,p.cajas-1)} cajas</span><span class="trow-price">${p.tier1}</span><span class="trow-disc"></span></div>
+        <div class="trow act"><span class="trow-qty">${p.cajas}+ cajas</span><span class="trow-price">${p.tier2}</span><span class="trow-disc">−${p.disc}</span></div>
+      </div>
+      <div class="prod-footer">
+        <div class="qty-total">
+          <div class="qty-side">
+            <div class="qlbl">Cajas</div>
+            <div class="qty-ctrl2">
+              <button class="qbtn2" onclick="chgQty(${p.id},-1)">−</button>
+              <span class="qnum2" id="q${p.id}">${p.cajas}</span>
+              <button class="qbtn2" onclick="chgQty(${p.id},1)">+</button>
             </div>
           </div>
-          <button class="add-btn" id="ab-${p.id}" onclick="addCart(${p.id})">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            Agregar al carrito
-          </button>
+          <div class="total-side">
+            <div class="tlbl">Total</div>
+            <div class="tval" id="t${p.id}">$${(p.price2*p.cajas).toLocaleString('es-MX',{minimumFractionDigits:2})}</div>
+            <div class="tsave" id="s${p.id}">Ahorro: $${((p.price1-p.price2)*p.cajas).toLocaleString('es-MX',{minimumFractionDigits:2})}</div>
+          </div>
         </div>
+        <button class="add-btn" id="btn${p.id}" onclick="addToCart(${p.id},this)">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Agregar al carrito
+        </button>
       </div>
-    </div>`;
-  }).join('');
-  observeReveal();
+    </div>
+  </div>`;
 }
 
-// ─── CHANGE QTY ─────────────────────────────────────────
-function chQty(pid, d) {
-  const p = products.find(x => x.id === pid);
-  qtys[pid] = Math.max(1, qtys[pid] + d);
-  const q = qtys[pid];
-  const ti = tierIdx(p, q);
-  const base = p.tiers[0].p;
-  const price = p.tiers[ti].p;
-  const total = price * q;
-  const save = (base - price) * q;
-
-  document.getElementById(`q-${pid}`).textContent = q;
-
-  const tvEl = document.getElementById(`tv-${pid}`);
-  tvEl.textContent = fmt(total);
-  tvEl.classList.remove('price-pop');
-  void tvEl.offsetWidth;
-  tvEl.classList.add('price-pop');
-
-  document.getElementById(`ts-${pid}`).innerHTML = save > 0 ? 'Ahorras ' + fmt(save) : '&nbsp;';
-  document.querySelectorAll(`[data-pid="${pid}"]`).forEach((r, i) => r.classList.toggle('act', i === ti));
+function buildPromoCard(p) {
+  return `
+  <div class="promo-card">
+    <div class="pc-img" style="background:${p.bg}">
+      ${p.emoji}
+      <span class="pc-disc-banner">−${p.disc} OFF</span>
+    </div>
+    <div class="pc-body">
+      <div class="pc-name">${p.name}</div>
+      <div class="pc-brand">${p.brand}</div>
+      <div class="pc-pricing">
+        <span class="pc-price-new">${p.tier2}</span>
+        <span class="pc-price-old">${p.tier1}</span>
+      </div>
+      <div class="pc-pack">${p.pack}</div>
+      <button class="add-btn" onclick="addToCart(${p.id},this)">
+        Agregar al carrito
+      </button>
+    </div>
+  </div>`;
 }
 
-// ─── ADD TO CART ─────────────────────────────────────────
-function addCart(pid) {
-  cartTotal++;
-  document.getElementById('cart-n').textContent = cartTotal;
-  const btn = document.getElementById(`ab-${pid}`);
-  const orig = btn.innerHTML;
-  btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Agregado`;
+// Render grids
+const promoProducts = products.filter(p => parseInt(p.disc) >= 10);
+document.getElementById('homeProducts').innerHTML = products.slice(0,6).map(buildProductCard).join('');
+document.getElementById('allProducts').innerHTML = products.map(buildProductCard).join('');
+document.getElementById('promoProducts').innerHTML = promoProducts.map(buildPromoCard).join('');
+
+// ── CART ────────────────────────────────────
+let cartCount = 0;
+function updateCartBadge() {
+  document.querySelector('.cart-n').textContent = cartCount;
+}
+function addToCart(id, btn) {
+  cartCount++;
+  updateCartBadge();
   btn.classList.add('added');
-  setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('added'); }, 1600);
+  btn.textContent = '✓ Agregado';
+  setTimeout(() => {
+    btn.classList.remove('added');
+    btn.innerHTML = `<svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Agregar al carrito`;
+  }, 1600);
 }
 
-// ─── HERO CARD ───────────────────────────────────────────
-const hTiers = [{min:1,max:4,p:2564},{min:5,max:9,p:2380},{min:10,max:24,p:2179},{min:25,max:9999,p:1980}];
-let hQ = 5;
-function heroQty(d) {
-  hQ = Math.max(1, hQ + d);
-  document.getElementById('h-qty').textContent = hQ;
-  const ti = hTiers.findIndex(t => hQ >= t.min && hQ <= t.max);
-  const base = hTiers[0].p;
-  const price = hTiers[ti].p;
-  const total = price * hQ;
-  const save = (base - price) * hQ;
-  document.getElementById('h-total').textContent = fmt(total);
-  document.getElementById('h-save').textContent = save > 0 ? `Ahorras ${fmt(save)} vs precio base` : '';
-  [0,1,2,3].forEach(i => {
-    const r = document.getElementById(`ht${i}`);
-    if (r) r.className = i === ti ? 'trow-active' : '';
+// ── PRODUCT QTY ──────────────────────────────
+const prodData = {};
+products.forEach(p => { prodData[p.id] = { qty: p.cajas, price1: p.price1, price2: p.price2, threshold: p.cajas }; });
+
+function chgQty(id, delta) {
+  const d = prodData[id];
+  d.qty = Math.max(1, d.qty + delta);
+  document.querySelectorAll('#q'+id).forEach(el => el.textContent = d.qty);
+  const price = d.qty >= d.threshold ? d.price2 : d.price1;
+  const total = price * d.qty;
+  const saving = (d.price1 - price) * d.qty;
+  document.querySelectorAll('#t'+id).forEach(el => el.textContent = '$' + total.toLocaleString('es-MX',{minimumFractionDigits:2}));
+  document.querySelectorAll('#s'+id).forEach(el => {
+    el.textContent = saving > 0 ? 'Ahorro: $' + saving.toLocaleString('es-MX',{minimumFractionDigits:2}) : '';
   });
 }
 
-// ─── SHIPPING CALC ───────────────────────────────────────
-const shipDB = {
-  '44': {city:'<strong>Guadalajara, Jalisco</strong>', time:'<strong>Entrega en 24 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
-  '06': {city:'<strong>Ciudad de México, CDMX</strong>', time:'<strong>Entrega en 48 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
-  '64': {city:'<strong>Monterrey, Nuevo León</strong>', time:'<strong>Entrega en 48–72 h</strong>', cost:'<strong>$450 MXN</strong> (gratis con +$15,000)'},
-  '45': {city:'<strong>Zapopan, Jalisco</strong>', time:'<strong>Entrega en 24 h</strong>', cost:'<strong style="color:var(--green)">Envío gratis con pedido +$8,000</strong>'},
-  '97': {city:'<strong>Mérida, Yucatán</strong>', time:'<strong>Entrega en 3–5 días</strong>', cost:'<strong>$680 MXN</strong>'},
-  '20': {city:'<strong>Aguascalientes</strong>', time:'<strong>Entrega en 48 h</strong>', cost:'<strong>$380 MXN</strong> (gratis con +$12,000)'},
-};
-function calcShip() {
-  const cp = document.getElementById('cp-in').value.trim();
-  if (cp.length < 5) return;
-  const d = shipDB[cp.slice(0,2)] || {city:`<strong>CP ${cp}</strong>`,time:'<strong>3–5 días hábiles</strong>',cost:'<strong>Consultar costo</strong>'};
-  document.getElementById('cr-city').innerHTML = d.city;
-  document.getElementById('cr-time').innerHTML = d.time;
-  document.getElementById('cr-cost').innerHTML = d.cost;
-  document.getElementById('calc-res').style.display = 'flex';
-}
-document.getElementById('cp-in').addEventListener('keydown', e => { if (e.key === 'Enter') calcShip(); });
-
-// ─── SCROLL REVEAL ───────────────────────────────────────
-function observeReveal() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// ── HERO QTY ────────────────────────────────
+let heroQty = 15;
+function changeQty(delta) {
+  heroQty = Math.max(1, heroQty + delta);
+  document.getElementById('heroQty').textContent = heroQty;
+  const price = heroQty >= 15 ? 2179.41 : 2564.01;
+  const total = price * heroQty;
+  document.getElementById('heroTotal').textContent = '$' + total.toLocaleString('es-MX',{minimumFractionDigits:2});
 }
 
-// ─── INIT ────────────────────────────────────────────────
-renderProds();
-observeReveal();
+// ── FAQ ACCORDION ────────────────────────────
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── PRODUCT FILTER ───────────────────────────
+function filterProds(btn, tag) {
+  document.querySelectorAll('.prod-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = tag === 'all' ? products : products.filter(p => p.tag === tag);
+  document.getElementById('allProducts').innerHTML = filtered.map(buildProductCard).join('');
+}
 </script>
 </body>
 </html>
